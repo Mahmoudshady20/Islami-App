@@ -1,0 +1,79 @@
+import 'package:flutter/material.dart';
+import 'package:islamirevision/ui/home/azkar/azkarscreen.dart';
+import 'package:islamirevision/ui/home/hadeth/hadethscreen.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen.dart';
+import 'package:islamirevision/ui/home/sebha/sebhascreen.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String routeName = 'homescreen';
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedTabIndex = 0;
+  List<Widget> tabs = [
+    QuranScreen(),
+    HadethScreen(),
+    SebhaScreen(),
+    AzkarScreen()
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration:  BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage( Theme.of(context).primaryColor == Color(0xFFB7935F) ?
+          'assets/images/homebackground.png' : 'assets/images/darkbackground.png',
+          ),
+        )
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('إسلامي'),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selectedTabIndex,
+          onTap: (index){
+            setState(() {
+              selectedTabIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: const ImageIcon(
+                AssetImage('assets/images/quran.png'),
+              ),
+              label: 'Quran',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: const ImageIcon(
+                AssetImage('assets/images/hadeth.png'),
+              ),
+              label: 'Hadeth',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: const ImageIcon(
+                AssetImage('assets/images/sebha.png'),
+              ),
+              label: 'Sebha',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: const ImageIcon(
+                AssetImage('assets/images/azkarlogo.png'),
+              ),
+              label: 'Azkar',
+            ),
+          ],
+        ),
+        body: tabs[selectedTabIndex],
+      ),
+    );
+  }
+}
