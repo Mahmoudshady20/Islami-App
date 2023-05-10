@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethnumber.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _HadethScreenState extends State<HadethScreen> {
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
-        Text('الأحاديث',
+        Text(AppLocalizations.of(context)!.hadeth_title,
           style: Theme.of(context).textTheme.headline3,),
         Container(
           width: double.infinity,
