@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamirevision/ui/home/azkar/azkarnamewidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AzkarScreen extends StatelessWidget {
   List<String> names = [
@@ -41,7 +42,7 @@ class AzkarScreen extends StatelessWidget {
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
-        Text('الأذكار',
+        Text(AppLocalizations.of(context)!.azkar_title,
           style: Theme.of(context).textTheme.headline3,
         ),
         Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamirevision/ui/home/quran/versnamewidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranScreen extends StatelessWidget {
   List<String> names = [
@@ -133,7 +134,7 @@ class QuranScreen extends StatelessWidget {
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
-        Text('اسم السورة',
+        Text(AppLocalizations.of(context)!.quran_title,
           style: Theme.of(context).textTheme.headline3,
         ),
         Container(

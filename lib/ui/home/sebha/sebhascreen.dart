@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaScreen extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             ? 'assets/images/sebhalogo.png' : 'assets/images/darksebhalogo.png'),
           ),
            Text(
-            'عدد التسبيحات',
+            AppLocalizations.of(context)!.sebha_title,
             style: Theme.of(context).textTheme.headline3,
           ),
           Expanded(
