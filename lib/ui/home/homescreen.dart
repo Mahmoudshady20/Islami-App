@@ -3,6 +3,7 @@ import 'package:islamirevision/ui/home/azkar/azkarscreen.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethscreen.dart';
 import 'package:islamirevision/ui/home/quran/quranscreen.dart';
 import 'package:islamirevision/ui/home/sebha/sebhascreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homescreen';
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('إسلامي'),
+          title: Text(AppLocalizations.of(context)!.app_title),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedTabIndex,
@@ -47,28 +48,28 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const ImageIcon(
                 AssetImage('assets/images/quran.png'),
               ),
-              label: 'Quran',
+              label: AppLocalizations.of(context)!.quran,
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
               icon: const ImageIcon(
                 AssetImage('assets/images/hadeth.png'),
               ),
-              label: 'Hadeth',
+              label: AppLocalizations.of(context)!.hadeth,
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
               icon: const ImageIcon(
                 AssetImage('assets/images/sebha.png'),
               ),
-              label: 'Sebha',
+              label: AppLocalizations.of(context)!.tasbeh,
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
               icon: const ImageIcon(
                 AssetImage('assets/images/azkarlogo.png'),
               ),
-              label: 'Azkar',
+              label: AppLocalizations.of(context)!.azkar,
             ),
           ],
         ),
