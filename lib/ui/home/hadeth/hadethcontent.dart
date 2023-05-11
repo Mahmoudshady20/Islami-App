@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethContnt extends StatelessWidget {
   static const String routeName = 'hadethcontent';
@@ -18,7 +19,7 @@ class HadethContnt extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Islami'),
+          title: Text(AppLocalizations.of(context)!.app_title),
         ),
         body: Card(
           elevation: 24,
@@ -37,7 +38,8 @@ class HadethContnt extends StatelessWidget {
                   color: Theme.of(context).accentColor,
                   height: 1,
                 ),
-                Expanded(child: SingleChildScrollView(
+                Expanded(child:
+                args.content.isEmpty ? Center(child: CircularProgressIndicator()) :SingleChildScrollView(
                   child:
                     Text(
                       args.content,

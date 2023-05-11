@@ -39,7 +39,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           child: Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
+                  child: chapterContent.isEmpty ? Center(child: CircularProgressIndicator()) : SingleChildScrollView(
                     child: VerseContent(chapterContent),
                 ),
               ),

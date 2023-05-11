@@ -9,6 +9,9 @@ class MyThemeData{
   static const Color darkAccentColor = Color(0xFFFACC1D);
 
   static var lightTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: lightPrimryColor
+    ),
     primaryColor: lightPrimryColor,
     accentColor: lightAccetentColor,
     cardColor: Colors.white,
@@ -45,6 +48,9 @@ class MyThemeData{
   );
 
   static var darkTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: darkAccentColor
+    ),
     primaryColor: darkPrimryColor,
     accentColor: darkAccentColor,
     cardColor: darkPrimryColor,
