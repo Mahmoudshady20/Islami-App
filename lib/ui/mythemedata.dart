@@ -9,8 +9,11 @@ class MyThemeData{
   static const Color darkAccentColor = Color(0xFFFACC1D);
 
   static var lightTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: lightPrimryColor
+    ),
     primaryColor: lightPrimryColor,
-    accentColor: lightAccetentColor,
+    hintColor: lightAccetentColor,
     cardColor: Colors.white,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
@@ -45,8 +48,11 @@ class MyThemeData{
   );
 
   static var darkTheme = ThemeData(
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: darkAccentColor
+    ),
     primaryColor: darkPrimryColor,
-    accentColor: darkAccentColor,
+    hintColor: darkAccentColor,
     cardColor: darkPrimryColor,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(

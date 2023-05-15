@@ -130,7 +130,7 @@ class QuranScreen extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).hintColor,
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
@@ -139,7 +139,7 @@ class QuranScreen extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).hintColor,
           height: 2,
           margin: const EdgeInsets.only(top: 4),
         ),
@@ -152,7 +152,7 @@ class QuranScreen extends StatelessWidget {
                itemCount: names.length,
               separatorBuilder: (buildcontext,index)=>Container(
                 width: double.infinity,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).hintColor,
                 height: 1,
               ),
         ))

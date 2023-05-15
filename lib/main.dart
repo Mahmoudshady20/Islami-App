@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
 import 'package:islamirevision/ui/home/homescreen.dart';
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English
         Locale('ar'), // Arabic
       ],
-      locale: Locale(Intl.systemLocale),
+      locale: Locale('en'),
     );
   }
 }
