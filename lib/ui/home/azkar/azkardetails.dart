@@ -46,7 +46,7 @@ class _AzcarDetailsState extends State<AzcarDetails> {
                   itemCount: content.length,
                   separatorBuilder: (buildcontext,index)=>Container(
                     width: double.infinity,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).hintColor,
                     height: 1,
                   ),
                 ),
