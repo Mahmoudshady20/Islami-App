@@ -25,7 +25,7 @@ class _HadethScreenState extends State<HadethScreen> {
         ),
         Container(
           width: double.infinity,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).hintColor,
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
@@ -33,7 +33,7 @@ class _HadethScreenState extends State<HadethScreen> {
           style: Theme.of(context).textTheme.headline3,),
         Container(
           width: double.infinity,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).hintColor,
           height: 2,
           margin: const EdgeInsets.only(top: 4),
         ),
@@ -46,7 +46,7 @@ class _HadethScreenState extends State<HadethScreen> {
               itemCount: allHadethList.length,
               separatorBuilder: (buildcontext,index)=>Container(
                 width: double.infinity,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).hintColor,
                 height: 1,
               ),
             ),

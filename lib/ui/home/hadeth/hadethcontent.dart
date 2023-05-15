@@ -35,7 +35,7 @@ class HadethContnt extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).hintColor,
                   height: 1,
                 ),
                 Expanded(child:

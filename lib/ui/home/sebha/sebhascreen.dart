@@ -77,7 +77,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     width: double.infinity,
                     height: 65,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).hintColor,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child:  Center(

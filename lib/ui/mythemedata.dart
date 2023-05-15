@@ -13,7 +13,7 @@ class MyThemeData{
       color: lightPrimryColor
     ),
     primaryColor: lightPrimryColor,
-    accentColor: lightAccetentColor,
+    hintColor: lightAccetentColor,
     cardColor: Colors.white,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
@@ -52,7 +52,7 @@ class MyThemeData{
         color: darkAccentColor
     ),
     primaryColor: darkPrimryColor,
-    accentColor: darkAccentColor,
+    hintColor: darkAccentColor,
     cardColor: darkPrimryColor,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
