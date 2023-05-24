@@ -14,6 +14,7 @@ class MyThemeData{
     ),
     primaryColor: lightPrimryColor,
     hintColor: lightAccetentColor,
+    dividerColor: darkPrimryColor,
     cardColor: Colors.white,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
@@ -26,6 +27,15 @@ class MyThemeData{
         fontSize: 24,
         color: Color(0xFF242424),
       ),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: lightPrimryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ),
+        )
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: Colors.black,
@@ -83,5 +93,15 @@ class MyThemeData{
       bodyText1: TextStyle(fontSize: 24, color: darkMainTextColor),
       bodyText2: TextStyle(fontSize: 20, color: darkMainTextColor),
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: darkPrimryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
+        ),
+      )
+    ),
+    dividerColor: lightPrimryColor,
   );
 }

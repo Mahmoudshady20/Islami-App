@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatefulWidget {
   @override
@@ -24,6 +26,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingProvider>(context);
     counter.add(counter1);
     counter.add(counter2);
     counter.add(counter3);
@@ -35,7 +38,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
         children: [
           Expanded(
             flex: 2,
-            child: Image.asset(Theme.of(context).primaryColor == Color(0xFFB7935F)
+            child: Image.asset(provider.themeMode==ThemeMode.light
             ? 'assets/images/sebhalogo.png' : 'assets/images/darksebhalogo.png'),
           ),
            Text(
