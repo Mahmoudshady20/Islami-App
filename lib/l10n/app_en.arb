@@ -7,5 +7,13 @@
   "quran": "Quran",
   "hadeth": "Hadeth",
   "tasbeh": "Tasbeeh",
-  "azkar": "Azkar"
+  "azkar": "Azkar",
+  "setting": "Setting",
+  "main_title": "Islami App",
+  "theme": "Theme",
+  "language": "Language",
+  "light": "Light",
+  "dark": "Dark",
+  "arabic": "Arabic",
+  "english": "English"
 }

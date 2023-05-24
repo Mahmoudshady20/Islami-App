@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/azkar/azkarscreen.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethscreen.dart';
 import 'package:islamirevision/ui/home/quran/quranscreen.dart';
 import 'package:islamirevision/ui/home/sebha/sebhascreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamirevision/ui/home/settings/settingscreen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homescreen';
@@ -18,15 +21,17 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranScreen(),
     HadethScreen(),
     SebhaScreen(),
-    AzkarScreen()
+    AzkarScreen(),
+    SettingScreen()
   ];
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingProvider>(context);
     return Container(
       decoration:  BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage( Theme.of(context).primaryColor == Color(0xFFB7935F) ?
+          image: AssetImage( provider.themeMode==ThemeMode.light?
           'assets/images/homebackground.png' : 'assets/images/darkbackground.png',
           ),
         )
@@ -71,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: AppLocalizations.of(context)!.azkar,
             ),
+            BottomNavigationBarItem(icon: Icon(Icons.settings),label: AppLocalizations.of(context)!.setting),
           ],
         ),
         body: tabs[selectedTabIndex],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/azkar/azkarcontent.dart';
+import 'package:provider/provider.dart';
 
 class AzcarDetails extends StatefulWidget {
   static const String routeName = 'azkardetails';
@@ -15,6 +17,7 @@ class _AzcarDetailsState extends State<AzcarDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as AzkarContentArgs;
+    var provider = Provider.of<SettingProvider>(context);
     if(content.isEmpty){
       readFile(args.index);
     }
@@ -22,7 +25,7 @@ class _AzcarDetailsState extends State<AzcarDetails> {
       decoration:  BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage( Theme.of(context).primaryColor == Color(0xFFB7935F) ?
+            image: AssetImage( provider.themeMode==ThemeMode.light?
             'assets/images/homebackground.png' : 'assets/images/darkbackground.png',),
           )
       ),

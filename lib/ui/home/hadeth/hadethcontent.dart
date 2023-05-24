@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class HadethContnt extends StatelessWidget {
   static const String routeName = 'hadethcontent';
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
+    var provider = Provider.of<SettingProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fill,
             image: AssetImage(
-              Theme.of(context).primaryColor == Color(0xFFB7935F) ?
+              provider.themeMode==ThemeMode.light?
               'assets/images/homebackground.png' : 'assets/images/darkbackground.png',
             ),
           )
