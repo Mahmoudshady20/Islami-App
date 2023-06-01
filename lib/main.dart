@@ -20,12 +20,11 @@ void main() async{
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
     return MaterialApp(
-      title: 'Islami App',
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
       routes: {
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         SuraDetailsScreen.routeName: (context) => SuraDetailsScreen(),
         HadethContnt.routeName: (context) => HadethContnt(),
-        AzcarDetails.routeName: (context) => AzcarDetails(),
+        AzkarDetails.routeName: (context) => AzkarDetails(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

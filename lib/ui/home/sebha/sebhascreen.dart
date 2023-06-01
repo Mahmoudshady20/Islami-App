@@ -38,16 +38,17 @@ class _SebhaScreenState extends State<SebhaScreen> {
         children: [
           Expanded(
             flex: 2,
-            child: Image.asset(provider.themeMode==ThemeMode.light
-            ? 'assets/images/sebhalogo.png' : 'assets/images/darksebhalogo.png'),
+            child: Image.asset(provider.themeMode == ThemeMode.light
+                ? 'assets/images/sebhalogo.png'
+                : 'assets/images/darksebhalogo.png'),
           ),
-           Text(
+          Text(
             AppLocalizations.of(context)!.sebha_title,
             style: Theme.of(context).textTheme.headline3,
           ),
           Expanded(
             child: PageView.builder(
-              itemBuilder: (buildcontext,index)=>Column(
+              itemBuilder: (buildcontext, index) => Column(
                 children: [
                   Container(
                     margin: const EdgeInsets.all(15),
@@ -60,37 +61,37 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     ),
                     child: Center(
                         child: Text(
-                          '${counter[index]}',
-                          style: Theme.of(context).textTheme.headline5,
-                        )),
+                      '${counter[index]}',
+                      style: Theme.of(context).textTheme.headline5,
+                    )),
                   ),
                   InkWell(
-                  onTap: () {
-                    setState(() {
-                      counter[index]++;
-                    });
-                  },
-                  onLongPress: () {
-                    setState(() {
-                      counter[index] = 0;
-                    });
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(5),
-                    width: double.infinity,
-                    height: 65,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).hintColor,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child:  Center(
-                      child: Text(
-                        tasbeh[index],
-                        style: Theme.of(context).textTheme.headline5,
+                    onTap: () {
+                      setState(() {
+                        counter[index]++;
+                      });
+                    },
+                    onLongPress: () {
+                      setState(() {
+                        counter[index] = 0;
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(5),
+                      width: double.infinity,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).hintColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text(
+                          tasbeh[index],
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
                       ),
                     ),
                   ),
-            ),
                 ],
               ),
               itemCount: tasbeh.length,

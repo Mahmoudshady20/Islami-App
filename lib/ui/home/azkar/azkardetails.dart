@@ -4,15 +4,16 @@ import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/azkar/azkarcontent.dart';
 import 'package:provider/provider.dart';
 
-class AzcarDetails extends StatefulWidget {
+class AzkarDetails extends StatefulWidget {
   static const String routeName = 'azkardetails';
 
   @override
-  State<AzcarDetails> createState() => _AzcarDetailsState();
+  State<AzkarDetails> createState() => _AzkarDetailsState();
 }
 
-class _AzcarDetailsState extends State<AzcarDetails> {
+class _AzkarDetailsState extends State<AzkarDetails> {
   List<String> content =[];
+  List<String> counters =[];
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class _AzcarDetailsState extends State<AzcarDetails> {
     var provider = Provider.of<SettingProvider>(context);
     if(content.isEmpty){
       readFile(args.index);
+      readCounter(args.index);
     }
     return Container(
       decoration:  BoxDecoration(
@@ -44,7 +46,7 @@ class _AzcarDetailsState extends State<AzcarDetails> {
               Expanded(
                 child: ListView.separated(
                   itemBuilder: (buildcontext,index){
-                    return AzkarContent(content[index]);
+                    return AzkarContent(content[index],counters[index]);
                   },
                   itemCount: content.length,
                   separatorBuilder: (buildcontext,index)=>Container(
@@ -69,7 +71,16 @@ class _AzcarDetailsState extends State<AzcarDetails> {
 
     });
   }
+  void readCounter(int index) async{
+
+    String text = await rootBundle.loadString('assets/files/count${index+1}.txt');
+    counters = text.split('#');
+    setState(() {
+
+    });
+  }
 }
+
 
 class AzkarContentArgs{
   String title;
