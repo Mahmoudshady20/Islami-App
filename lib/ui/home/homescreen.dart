@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HadethScreen(),
     SebhaScreen(),
     AzkarScreen(),
-    SettingScreen()
+    SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

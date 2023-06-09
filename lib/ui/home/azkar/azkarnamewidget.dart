@@ -9,7 +9,7 @@ class AzkarNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, AzcarDetails.routeName,
+        Navigator.pushNamed(context, AzkarDetails.routeName,
         arguments: AzkarContentArgs(title, index)
         );
       },

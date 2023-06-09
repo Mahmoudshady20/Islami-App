@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
 import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatefulWidget {
@@ -9,12 +10,6 @@ class SebhaScreen extends StatefulWidget {
 }
 
 class _SebhaScreenState extends State<SebhaScreen> {
-  int counter1 = 0;
-  int counter2 = 0;
-  int counter3 = 0;
-  int counter4 = 0;
-  int counter5 = 0;
-  int counter6 = 0;
   List<int> counter = [];
   List<String> tasbeh = [
     'سُبْحَانَ اللَّهِ',
@@ -27,27 +22,28 @@ class _SebhaScreenState extends State<SebhaScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
-    counter.add(counter1);
-    counter.add(counter2);
-    counter.add(counter3);
-    counter.add(counter4);
-    counter.add(counter5);
-    counter.add(counter6);
+    counter.add(SharedPrefs.getCounter1());
+    counter.add(SharedPrefs.getCounter2());
+    counter.add(SharedPrefs.getCounter3());
+    counter.add(SharedPrefs.getCounter4());
+    counter.add(SharedPrefs.getCounter5());
+    counter.add(SharedPrefs.getCounter6());
     return Scaffold(
       body: Column(
         children: [
           Expanded(
             flex: 2,
-            child: Image.asset(provider.themeMode==ThemeMode.light
-            ? 'assets/images/sebhalogo.png' : 'assets/images/darksebhalogo.png'),
+            child: Image.asset(provider.themeMode == ThemeMode.light
+                ? 'assets/images/sebhalogo.png'
+                : 'assets/images/darksebhalogo.png'),
           ),
-           Text(
+          Text(
             AppLocalizations.of(context)!.sebha_title,
             style: Theme.of(context).textTheme.headline3,
           ),
           Expanded(
             child: PageView.builder(
-              itemBuilder: (buildcontext,index)=>Column(
+              itemBuilder: (buildcontext, index) => Column(
                 children: [
                   Container(
                     margin: const EdgeInsets.all(15),
@@ -65,32 +61,62 @@ class _SebhaScreenState extends State<SebhaScreen> {
                         )),
                   ),
                   InkWell(
-                  onTap: () {
-                    setState(() {
-                      counter[index]++;
-                    });
-                  },
-                  onLongPress: () {
-                    setState(() {
-                      counter[index] = 0;
-                    });
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(5),
-                    width: double.infinity,
-                    height: 65,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).hintColor,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child:  Center(
-                      child: Text(
-                        tasbeh[index],
-                        style: Theme.of(context).textTheme.headline5,
+                    onTap: () {
+                      setState(() {
+                        counter[index]++;
+                        if(index==0){
+                          SharedPrefs.setCounter1(counter[index]);
+                        } else if(index==1){
+                          SharedPrefs.setCounter2(counter[index]);
+                        }
+                        else if(index==2){
+                          SharedPrefs.setCounter3(counter[index]);
+                        }else if(index==3){
+                          SharedPrefs.setCounter4(counter[index]);
+                        }
+                        else if(index==4){
+                          SharedPrefs.setCounter5(counter[index]);
+                        }else if(index==5){
+                          SharedPrefs.setCounter6(counter[index]);
+                        }
+                      });
+                    },
+                    onLongPress: () {
+                      setState(() {
+                        counter[index] = 0;
+                        if(index==0){
+                          SharedPrefs.setCounter1(counter[index]);
+                        }else if(index==1){
+                          SharedPrefs.setCounter2(counter[index]);
+                        }
+                        else if(index==2){
+                          SharedPrefs.setCounter3(counter[index]);
+                        }else if(index==3){
+                          SharedPrefs.setCounter4(counter[index]);
+                        }
+                        else if(index==4){
+                          SharedPrefs.setCounter5(counter[index]);
+                        }else if(index==5){
+                          SharedPrefs.setCounter6(counter[index]);
+                        }
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(5),
+                      width: double.infinity,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).hintColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text(
+                          tasbeh[index],
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
                       ),
                     ),
                   ),
-            ),
                 ],
               ),
               itemCount: tasbeh.length,
