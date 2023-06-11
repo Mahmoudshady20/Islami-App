@@ -76,7 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: AppLocalizations.of(context)!.azkar,
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.settings),label: AppLocalizations.of(context)!.setting),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: const Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.setting),
           ],
         ),
         body: tabs[selectedTabIndex],
