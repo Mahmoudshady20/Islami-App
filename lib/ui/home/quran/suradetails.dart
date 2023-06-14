@@ -12,7 +12,7 @@ class SuraDetailsScreen extends StatefulWidget {
 }
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
-  String chapterContent = '';
+  List<String> chapterContent = [];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(onPressed: (){
+
+            }, icon: Icon(Icons.data_saver_on))
+          ],
           title: Text(args.title),
         ),
         body: Card(
@@ -55,7 +60,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   void readFile(int index) async{
     String text = await rootBundle.loadString('assets/files/${index+1}.txt');
-    chapterContent = text;
+    chapterContent = text.split(')');
+    print(chapterContent);
     setState(() {
 
     });

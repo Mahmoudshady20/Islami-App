@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
 class VerseContent extends StatelessWidget {
-  String content;
+  List<String> content;
 
   VerseContent(this.content);
 
   @override
   Widget build(BuildContext context) {
+    String test = '';
+    for(var s in content)test+=s+')';
     return Container(
+      padding: EdgeInsets.only(
+        top: 12,
+      ),
       alignment: Alignment.center,
       child: Text(
-        content,
+        test,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.bodyText1,
       ),
