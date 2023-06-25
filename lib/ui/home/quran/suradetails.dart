@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:islamirevision/ui/home/quran/bookmark_bottom_sheet.dart';
 import 'package:islamirevision/ui/home/quran/versecontent.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsScreenArgs;
+    int test = args.index;
     var provider = Provider.of<SettingProvider>(context);
     if(chapterContent.isEmpty){
       readFile(args.index);
@@ -33,7 +35,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         appBar: AppBar(
           actions: [
             IconButton(onPressed: (){
-
+              showModalBottomSheet(context: context, builder: (context) => BookMarkBottomSheet(verseNumber: chapterContent.length-1,suraNumber: test+1,),);
             }, icon: Icon(Icons.data_saver_on))
           ],
           title: Text(args.title),
@@ -61,12 +63,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   void readFile(int index) async{
     String text = await rootBundle.loadString('assets/files/${index+1}.txt');
     chapterContent = text.split(')');
-    print(chapterContent);
     setState(() {
 
     });
   }
+
 }
+
 
 
 class SuraDetailsScreenArgs{

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/azkar/azkarscreen.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethscreen.dart';
+import 'package:islamirevision/ui/home/quran/bookmarks_details.dart';
 import 'package:islamirevision/ui/home/quran/quranscreen.dart';
 import 'package:islamirevision/ui/home/sebha/sebhascreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -39,6 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.app_title),
+          actions: [
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, BookMarksDetails.routeName);
+              },
+                child: Icon(Icons.bookmark)),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedTabIndex,

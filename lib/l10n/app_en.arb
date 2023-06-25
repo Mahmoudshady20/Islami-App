@@ -15,5 +15,10 @@
   "light": "Light",
   "dark": "Dark",
   "arabic": "Arabic",
-  "english": "English"
+  "english": "English",
+  "boodmark": "Please write the verse number",
+  "addbutton": "save",
+  "book": "Bookmarks",
+  "go" : "Go to Surah",
+  "clear" : "delete all"
 }

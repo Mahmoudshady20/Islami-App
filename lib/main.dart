@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
 import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
 import 'package:islamirevision/ui/home/homescreen.dart';
+import 'package:islamirevision/ui/home/quran/bookmarks_details.dart';
 import 'package:islamirevision/ui/home/quran/suradetails.dart';
+import 'package:islamirevision/ui/home/quran/verse_model.dart';
 import 'package:islamirevision/ui/mythemedata.dart';
 import 'package:islamirevision/ui/splash/splashscreen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async{
   WidgetsFlutterBinding();
   SharedPrefs.prefs = await SharedPreferences.getInstance();
+  final document = await getApplicationDocumentsDirectory();
+  await Hive.initFlutter(document.path);
+  Hive.registerAdapter(VerseModelAdapter());
+  await Hive.openBox('verseBox');
   runApp(ChangeNotifierProvider(
       create: (BuildContext context)=>SettingProvider()..init(), child: MyApp()));
 }
@@ -33,6 +41,7 @@ class MyApp extends StatelessWidget {
         SuraDetailsScreen.routeName: (context) => SuraDetailsScreen(),
         HadethContnt.routeName: (context) => HadethContnt(),
         AzkarDetails.routeName: (context) => AzkarDetails(),
+        BookMarksDetails.routeName : (context) => BookMarksDetails()
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
