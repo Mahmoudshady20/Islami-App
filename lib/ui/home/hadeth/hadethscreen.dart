@@ -40,6 +40,7 @@ class _HadethScreenState extends State<HadethScreen> {
         Expanded(
           flex: 3,
             child: ListView.separated(
+              physics:  const BouncingScrollPhysics(),
                 itemBuilder: (buildcontext,index){
                   return HadethNumber(allHadethList[index].title,allHadethList[index].content);
                 },

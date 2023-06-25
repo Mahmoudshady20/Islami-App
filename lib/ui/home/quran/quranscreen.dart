@@ -146,6 +146,7 @@ class QuranScreen extends StatelessWidget {
         Expanded(
           flex: 3,
             child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
             itemBuilder: (BuildContext,index){
               return VerseNameWidget(names[index],index);
             },

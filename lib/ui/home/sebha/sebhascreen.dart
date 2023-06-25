@@ -43,6 +43,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
           ),
           Expanded(
             child: PageView.builder(
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (buildcontext, index) => Column(
                 children: [
                   Container(

@@ -33,6 +33,7 @@ class _BookMarksDetailsState extends State<BookMarksDetails> {
           children: [
             Expanded(
               child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) => BookMarkWidget(versemodel: verseList[index],voidCallBack: deleteBookmark,index: index,),
                 itemCount: verseList.length,
                 separatorBuilder: (context, index) => SizedBox(height: 5,),
