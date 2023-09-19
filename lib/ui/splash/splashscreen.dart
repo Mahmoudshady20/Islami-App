@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamirevision/ui/home/homescreen.dart';
-import 'package:provider/provider.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = 'splashscreen';
@@ -9,16 +8,51 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<SettingProvider>(context);
-    Future.delayed(Duration(seconds: 3),(){
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
-      return Image.asset(
-        provider.themeMode == ThemeMode.light?
-        'assets/images/splash.png' : 'assets/images/darksplash.png',
-        fit: BoxFit.fill,
-        width: double.infinity,
-        height: double.infinity,
-      );
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.main_title,
+            style: Theme.of(context).textTheme.headline1,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            'Learn Quran and ',
+            style: Theme.of(context).textTheme.headline2,
+          ),
+          Text(
+              'Recite once everyday',
+            style: Theme.of(context).textTheme.headline2,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Image.asset(
+              'assets/images/splashlogo.png',
+              fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width * .8,
+              height: MediaQuery.of(context).size.height * .6,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
+/**
+    Image.asset(
+    provider.themeMode == ThemeMode.light?
+    'assets/images/splashlogo.png' : 'assets/images/darksplash.png',
+    fit: BoxFit.fill,
+    width: double.infinity,
+    height: double.infinity,
+    );
+ **/

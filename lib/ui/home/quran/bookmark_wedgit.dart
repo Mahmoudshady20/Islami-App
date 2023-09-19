@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/ui/home/quran/suradetails.dart';
-import 'package:islamirevision/ui/home/quran/verse_model.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen/suradetails.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen/verse_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/quran.dart'as quran;
 
@@ -130,7 +130,11 @@ class BookMarkWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      color: Theme.of(context).primaryColor,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: Theme.of(context).hintColor,
+        borderRadius: BorderRadius.circular(15)
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

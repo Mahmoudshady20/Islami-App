@@ -14,7 +14,12 @@ import 'package:shared_preferences/shared_preferences.dart';
   static Future<void> setlanguage(String lan) async{
     await prefs.setString('lan', lan);
   }
-
+  static int getLastNumberOfSurahRead(){
+  return prefs.getInt('lastSurah') ?? 1;
+  }
+  static Future<void> setLastNumberOfSurahRead(int index) async{
+   await prefs.setInt('lastSurah', index);
+  }
   static String getlanguage(){
     return prefs.getString('lan') ?? 'ar';
   }

@@ -13,15 +13,15 @@ if (flutterRoot == null) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+    flutterVersionCode = '2'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = '1.0.1'
 }
 
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'11
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.islamirevision"
+        applicationId "com.mahmoudshady.islamiApp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -52,12 +52,22 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
-
+    signingConfigs {
+        release {
+            // App fingerpring for firestore .
+            // SHA1: 84:06:BE:24:F7:82:87:C5:18:EA:2F:54:90:88:6C:AF:07:EE:37:3E
+            // SHA256: 45:FE:72:89:B1:BB:4D:40:3A:4A:7E:4A:B3:F1:AE:90:74:77:76:9F:9E:F3:67:4A:48:E3:B8:E8:C3:95:61:8F
+            storeFile file("C:/Users/mahmoud shady/upload-keystore.jks")
+            storePassword "01028787818"
+            keyAlias "myalias"
+            keyPassword "01028787818"
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/ui/home/azkar/azkarcontent.dart';
-import 'package:provider/provider.dart';
 
 class AzkarDetails extends StatefulWidget {
   static const String routeName = 'azkardetails';
@@ -18,46 +16,36 @@ class _AzkarDetailsState extends State<AzkarDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as AzkarContentArgs;
-    var provider = Provider.of<SettingProvider>(context);
     if(content.isEmpty){
       readFile(args.index);
       readCounter(args.index);
     }
-    return Container(
-      decoration:  BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage( provider.themeMode==ThemeMode.light?
-            'assets/images/homebackground.png' : 'assets/images/darkbackground.png',),
-          )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(args.title),
       ),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(args.title),
+      body: Card(
+        elevation: 24,
+        margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
         ),
-        body: Card(
-          elevation: 24,
-          margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
-          ),
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView.separated(
-                  itemBuilder: (buildcontext,index){
-                    return AzkarContent(content[index],counters[index]);
-                  },
-                  itemCount: content.length,
-                  separatorBuilder: (buildcontext,index)=>Container(
-                    width: double.infinity,
-                    color: Theme.of(context).hintColor,
-                    height: 1,
-                  ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (buildcontext,index){
+                  return AzkarContent(content[index],counters[index]);
+                },
+                itemCount: content.length,
+                separatorBuilder: (buildcontext,index)=>Container(
+                  width: double.infinity,
+                  color: Theme.of(context).hintColor,
+                  height: 1,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

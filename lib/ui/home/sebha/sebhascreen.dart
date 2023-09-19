@@ -52,7 +52,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     width: 69,
                     height: 70,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).hintColor,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Center(
@@ -61,66 +61,91 @@ class _SebhaScreenState extends State<SebhaScreen> {
                           style: Theme.of(context).textTheme.headline5,
                         )),
                   ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        counter[index]++;
-                        if(index==0){
-                          SharedPrefs.setCounter1(counter[index]);
-                        } else if(index==1){
-                          SharedPrefs.setCounter2(counter[index]);
-                        }
-                        else if(index==2){
-                          SharedPrefs.setCounter3(counter[index]);
-                        }else if(index==3){
-                          SharedPrefs.setCounter4(counter[index]);
-                        }
-                        else if(index==4){
-                          SharedPrefs.setCounter5(counter[index]);
-                        }else if(index==5){
-                          SharedPrefs.setCounter6(counter[index]);
-                        }
-                      });
-                    },
-                    onLongPress: () {
-                      setState(() {
-                        counter[index] = 0;
-                        if(index==0){
-                          SharedPrefs.setCounter1(counter[index]);
-                        }else if(index==1){
-                          SharedPrefs.setCounter2(counter[index]);
-                        }
-                        else if(index==2){
-                          SharedPrefs.setCounter3(counter[index]);
-                        }else if(index==3){
-                          SharedPrefs.setCounter4(counter[index]);
-                        }
-                        else if(index==4){
-                          SharedPrefs.setCounter5(counter[index]);
-                        }else if(index==5){
-                          SharedPrefs.setCounter6(counter[index]);
-                        }
-                      });
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.all(5),
-                      width: double.infinity,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).hintColor,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Center(
-                        child: Text(
-                          tasbeh[index],
-                          style: Theme.of(context).textTheme.headline5,
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 7,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              counter[index]++;
+                              if(index==0){
+                                SharedPrefs.setCounter1(counter[index]);
+                              } else if(index==1){
+                                SharedPrefs.setCounter2(counter[index]);
+                              }
+                              else if(index==2){
+                                SharedPrefs.setCounter3(counter[index]);
+                              }else if(index==3){
+                                SharedPrefs.setCounter4(counter[index]);
+                              }
+                              else if(index==4){
+                                SharedPrefs.setCounter5(counter[index]);
+                              }else if(index==5){
+                                SharedPrefs.setCounter6(counter[index]);
+                              }
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.all(5),
+                            width: double.infinity,
+                            height: 65,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).hintColor,
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Center(
+                              child: Text(
+                                tasbeh[index],
+                                style: Theme.of(context).textTheme.headline5,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Expanded(
+                        flex: 1,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              counter[index] = 0;
+                              if(index==0){
+                                SharedPrefs.setCounter1(counter[index]);
+                              }else if(index==1){
+                                SharedPrefs.setCounter2(counter[index]);
+                              }
+                              else if(index==2){
+                                SharedPrefs.setCounter3(counter[index]);
+                              }else if(index==3){
+                                SharedPrefs.setCounter4(counter[index]);
+                              }
+                              else if(index==4){
+                                SharedPrefs.setCounter5(counter[index]);
+                              }else if(index==5){
+                                SharedPrefs.setCounter6(counter[index]);
+                              }
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.all(5),
+                            width: double.infinity,
+                            height: 65,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).hintColor,
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Center(
+                              child: Icon(Icons.refresh,color: provider.isDark() ? Colors.white : Colors.black,),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
               itemCount: tasbeh.length,
+              padEnds: false,
             ),
           ),
           SizedBox(

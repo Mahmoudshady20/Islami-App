@@ -5,13 +5,14 @@ import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
 class HadethNumber extends StatelessWidget {
   String title;
   String content;
-  HadethNumber(this.title,this.content);
+  int index;
+  HadethNumber(this.title,this.content,this.index);
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
         Navigator.pushNamed(context, HadethContnt.routeName,
-        arguments: Hadeth(title, content)
+        arguments: Hadeth(title:  title,content:  content,index:  index)
         );
       },
       child: Container(

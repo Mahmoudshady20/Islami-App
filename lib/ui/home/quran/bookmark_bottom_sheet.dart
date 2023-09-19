@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:islamirevision/ui/home/quran/verse_model.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen/verse_model.dart';
 import 'package:quran/quran.dart'as quran;
 
 
@@ -29,16 +29,16 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
       child: Form(
         key: formKey,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(AppLocalizations.of(context)!.boodmark),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.1,
+              height: MediaQuery.of(context).size.height*0.09,
             ),
             TextFormField(
               style: Theme.of(context).textTheme.bodyText2,
               controller: numberController,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 label: Text(AppLocalizations.of(context)!.boodmark,),
                 labelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
@@ -55,6 +55,7 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
                 if(int.parse(text)<0){
                   return 'Please enter the valid number';
                 }
+                return null;
               },
             ),
             SizedBox(

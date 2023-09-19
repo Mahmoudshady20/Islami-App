@@ -1,58 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:flutter/services.dart';
 import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 
 class HadethContnt extends StatelessWidget {
   static const String routeName = 'hadethcontent';
+
+  const HadethContnt({super.key});
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
-    var provider = Provider.of<SettingProvider>(context);
-    return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(
-              provider.themeMode==ThemeMode.light?
-              'assets/images/homebackground.png' : 'assets/images/darkbackground.png',
-            ),
-          )
+    copy(){
+      final value = ClipboardData(text: args.content);
+      Clipboard.setData(value);
+    }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.app_title),
       ),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.app_title),
-        ),
-        body: Card(
-          elevation: 24,
-            margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
-            shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
-        ),
-            child: Column(
-              children: [
-                Text(
-                  args.title,
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                Container(
-                  width: double.infinity,
-                  color: Theme.of(context).hintColor,
-                  height: 1,
-                ),
-                Expanded(child:
-                args.content.isEmpty ? Center(child: CircularProgressIndicator()) :SingleChildScrollView(
-                  child:
-                    Text(
-                      args.content,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                )),
-              ],
-            )
-        ),
+      body: Card(
+        elevation: 24,
+          margin: const EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+          shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+      ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    args.title,
+                    style:args.index == 30 ? Theme.of(context).textTheme.headline3?.copyWith(
+                      fontSize: 18
+                    ) : Theme.of(context).textTheme.headline3 ,
+                  ),
+                  IconButton(onPressed: (){
+                    copy();
+                  }, icon: Icon(Icons.copy,color: Theme.of(context).dividerColor,)
+                  )
+                ],
+              ),
+              Container(
+                width: double.infinity,
+                color: Theme.of(context).hintColor,
+                height: 1,
+              ),
+              Expanded(child:
+              args.content.isEmpty ? const Center(child: CircularProgressIndicator()) :SingleChildScrollView(
+                child:
+                  Text(
+                    args.content,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+              )),
+            ],
+          )
       ),
     );
   }

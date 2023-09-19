@@ -25,7 +25,7 @@ class _HadethScreenState extends State<HadethScreen> {
         ),
         Container(
           width: double.infinity,
-          color: Theme.of(context).hintColor,
+          color: Theme.of(context).dividerColor,
           height: 2,
           margin: const EdgeInsets.only(bottom: 4),
         ),
@@ -33,7 +33,7 @@ class _HadethScreenState extends State<HadethScreen> {
           style: Theme.of(context).textTheme.headline3,),
         Container(
           width: double.infinity,
-          color: Theme.of(context).hintColor,
+          color: Theme.of(context).dividerColor,
           height: 2,
           margin: const EdgeInsets.only(top: 4),
         ),
@@ -42,13 +42,13 @@ class _HadethScreenState extends State<HadethScreen> {
             child: ListView.separated(
               physics:  const BouncingScrollPhysics(),
                 itemBuilder: (buildcontext,index){
-                  return HadethNumber(allHadethList[index].title,allHadethList[index].content);
+                  return HadethNumber(allHadethList[index].title,allHadethList[index].content,index);
                 },
               itemCount: allHadethList.length,
               separatorBuilder: (buildcontext,index)=>Container(
                 width: double.infinity,
-                color: Theme.of(context).hintColor,
-                height: 1,
+                color: Theme.of(context).dividerColor,
+                height: 2,
               ),
             ),
         ),
@@ -66,7 +66,7 @@ class _HadethScreenState extends State<HadethScreen> {
       String title = lines[0];
       lines.removeAt(0);
       String content = lines.join('\n');
-      Hadeth hadeth = Hadeth(title, content);
+      Hadeth hadeth = Hadeth(title: title,content:  content);
       hadethList.add(hadeth);
     }
     allHadethList = hadethList;

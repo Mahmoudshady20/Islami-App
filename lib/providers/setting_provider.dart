@@ -6,6 +6,7 @@ class SettingProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.system;
   Locale myLocal = Locale('ar');
 
+
   void init(){
     if(SharedPrefs.getTheme()=='dark'){
       themeMode = ThemeMode.dark;
@@ -40,5 +41,20 @@ class SettingProvider extends ChangeNotifier {
     SharedPrefs.setlanguage('en');
     notifyListeners();
   }
-
+  bool isDark(){
+    if(themeMode == ThemeMode.dark){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  bool isEnglish(){
+    if(myLocal == Locale('en')){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

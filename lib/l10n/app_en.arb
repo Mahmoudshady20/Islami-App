@@ -1,6 +1,6 @@
 {
   "app_title": "Islami",
-  "quran_title": "Chapter Name",
+  "quran_title": "Surah Name",
   "hadeth_title": "Hadeth",
   "sebha_title": "number of tasbeeh",
   "azkar_title": "Azkar",
@@ -20,5 +20,8 @@
   "addbutton": "save",
   "book": "Bookmarks",
   "go" : "Go to Surah",
-  "clear" : "delete all"
+  "clear" : "delete all",
+  "verses": "verses",
+  "lastread": "Last Read"
+
 }

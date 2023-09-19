@@ -6,8 +6,8 @@ import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
 import 'package:islamirevision/ui/home/homescreen.dart';
 import 'package:islamirevision/ui/home/quran/bookmarks_details.dart';
-import 'package:islamirevision/ui/home/quran/suradetails.dart';
-import 'package:islamirevision/ui/home/quran/verse_model.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen/suradetails.dart';
+import 'package:islamirevision/ui/home/quran/quranscreen/verse_model.dart';
 import 'package:islamirevision/ui/mythemedata.dart';
 import 'package:islamirevision/ui/splash/splashscreen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -46,13 +46,13 @@ class MyApp extends StatelessWidget {
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
       themeMode: provider.themeMode,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('ar'), // Arabic
       ],

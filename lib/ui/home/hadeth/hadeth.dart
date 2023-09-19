@@ -1,6 +1,6 @@
 class Hadeth {
   String title;
   String content;
-
-  Hadeth(this.title,this.content);
+  int? index;
+  Hadeth({required this.title,required this.content,this.index});
 }

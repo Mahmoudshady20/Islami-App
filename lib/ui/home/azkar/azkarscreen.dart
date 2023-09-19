@@ -23,6 +23,8 @@ class AzkarScreen extends StatelessWidget {
     'ما يقال عند الدخول إلى المنزل',
   ];
 
+  AzkarScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
 

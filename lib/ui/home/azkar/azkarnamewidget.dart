@@ -4,7 +4,7 @@ import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
 class AzkarNameWidget extends StatelessWidget {
   String title;
   int index;
-  AzkarNameWidget(this.title,this.index);
+  AzkarNameWidget(this.title,this.index, {super.key});
   @override
   Widget build(BuildContext context) {
     return InkWell(
