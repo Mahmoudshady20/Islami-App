@@ -5,6 +5,8 @@ import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
 import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatefulWidget {
+  const SebhaScreen({super.key});
+
   @override
   State<SebhaScreen> createState() => _SebhaScreenState();
 }
@@ -39,7 +41,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
           ),
           Text(
             AppLocalizations.of(context)!.sebha_title,
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           Expanded(
             child: PageView.builder(
@@ -58,7 +60,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     child: Center(
                         child: Text(
                           '${counter[index]}',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         )),
                   ),
                   Row(
@@ -97,7 +99,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                             child: Center(
                               child: Text(
                                 tasbeh[index],
-                                style: Theme.of(context).textTheme.headline5,
+                                style: Theme.of(context).textTheme.headlineSmall,
                               ),
                             ),
                           ),
@@ -148,7 +150,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
               padEnds: false,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
         ],

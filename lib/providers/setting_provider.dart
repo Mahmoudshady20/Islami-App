@@ -4,7 +4,7 @@ import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
 class SettingProvider extends ChangeNotifier {
 
   ThemeMode themeMode = ThemeMode.system;
-  Locale myLocal = Locale('ar');
+  Locale myLocal = const Locale('ar');
 
 
   void init(){
@@ -14,9 +14,9 @@ class SettingProvider extends ChangeNotifier {
       themeMode = ThemeMode.light;
     }
     if(SharedPrefs.getlanguage()=='ar'){
-      myLocal = Locale('ar');
+      myLocal = const Locale('ar');
     }else {
-      myLocal = Locale('en');
+      myLocal = const Locale('en');
     }
   }
 
@@ -32,12 +32,12 @@ class SettingProvider extends ChangeNotifier {
   }
 
   void enableArabic(){
-    myLocal = Locale('ar');
+    myLocal = const Locale('ar');
     SharedPrefs.setlanguage('ar');
     notifyListeners();
   }
   void enableEnglish(){
-    myLocal = Locale('en');
+    myLocal = const Locale('en');
     SharedPrefs.setlanguage('en');
     notifyListeners();
   }
@@ -50,7 +50,7 @@ class SettingProvider extends ChangeNotifier {
     }
   }
   bool isEnglish(){
-    if(myLocal == Locale('en')){
+    if(myLocal == const Locale('en')){
       return true;
     }
     else {

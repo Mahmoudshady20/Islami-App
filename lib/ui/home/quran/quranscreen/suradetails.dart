@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'suradetails';
+
+  const SuraDetailsScreen({super.key});
   @override
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
 }
@@ -45,13 +47,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     ),
                   );
                 },
-                icon: Icon(Icons.data_saver_on))
+                icon: const Icon(Icons.data_saver_on))
           ],
           title: Text(args.title),
         ),
         body: Card(
           elevation: 24,
-          margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+          margin: const EdgeInsets.symmetric(vertical: 48, horizontal: 12),
           shape: RoundedRectangleBorder(
             side: BorderSide(
               color:provider.isDark() ? Colors.white54 :  Colors.black,
@@ -62,7 +64,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             children: [
               Expanded(
                 child: chapterContent.isEmpty
-                    ? Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : SingleChildScrollView(
                         child: VerseContent(chapterContent),
                       ),

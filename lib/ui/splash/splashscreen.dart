@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
     return Scaffold(
@@ -18,20 +18,20 @@ class SplashScreen extends StatelessWidget {
         children: [
           Text(
             AppLocalizations.of(context)!.main_title,
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Text(
             'Learn Quran and ',
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           Text(
               'Recite once everyday',
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(

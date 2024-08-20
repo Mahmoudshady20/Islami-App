@@ -3,10 +3,10 @@ import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
 import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
 
 class HadethNumber extends StatelessWidget {
-  String title;
-  String content;
-  int index;
-  HadethNumber(this.title,this.content,this.index);
+  final String title;
+  final String content;
+  final int index;
+  const HadethNumber(this.title,this.content,this.index, {super.key});
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -19,7 +19,7 @@ class HadethNumber extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
     );

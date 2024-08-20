@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class AzkarContent extends StatefulWidget {
   String content;
   String number;
-  AzkarContent(this.content, this.number);
+  AzkarContent(this.content, this.number, {super.key});
 
   @override
   State<AzkarContent> createState() => _AzkarContentState();
@@ -27,7 +27,7 @@ class _AzkarContentState extends State<AzkarContent> {
           child: Text(
             widget.content,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Row(
@@ -55,13 +55,13 @@ class _AzkarContentState extends State<AzkarContent> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   bottom: 8,
                   left: 4,
                   right: 4
                 ),
                 decoration: BoxDecoration(
-                  color: Color(0xFFB29786),
+                  color: const Color(0xFFB29786),
                   borderRadius: BorderRadius.circular(15)
                 ),
                 height: MediaQuery.of(context).size.height*.15,
@@ -69,7 +69,7 @@ class _AzkarContentState extends State<AzkarContent> {
                 child: Center(
                   child: Text(
                     '$counter',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                   ),
                 ),
               ),

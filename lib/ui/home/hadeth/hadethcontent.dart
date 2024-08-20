@@ -31,9 +31,9 @@ class HadethContnt extends StatelessWidget {
                 children: [
                   Text(
                     args.title,
-                    style:args.index == 30 ? Theme.of(context).textTheme.headline3?.copyWith(
+                    style:args.index == 30 ? Theme.of(context).textTheme.displaySmall?.copyWith(
                       fontSize: 18
-                    ) : Theme.of(context).textTheme.headline3 ,
+                    ) : Theme.of(context).textTheme.displaySmall ,
                   ),
                   IconButton(onPressed: (){
                     copy();
@@ -52,7 +52,7 @@ class HadethContnt extends StatelessWidget {
                   Text(
                     args.content,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
               )),
             ],

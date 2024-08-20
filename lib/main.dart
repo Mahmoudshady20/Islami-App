@@ -24,10 +24,12 @@ void main() async{
   Hive.registerAdapter(VerseModelAdapter());
   await Hive.openBox('verseBox');
   runApp(ChangeNotifierProvider(
-      create: (BuildContext context)=>SettingProvider()..init(), child: MyApp()));
+      create: (BuildContext context)=>SettingProvider()..init(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,11 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
-        HomeScreen.routeName: (context) => HomeScreen(),
-        SuraDetailsScreen.routeName: (context) => SuraDetailsScreen(),
-        HadethContnt.routeName: (context) => HadethContnt(),
-        AzkarDetails.routeName: (context) => AzkarDetails(),
-        BookMarksDetails.routeName : (context) => BookMarksDetails()
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        SuraDetailsScreen.routeName: (context) => const SuraDetailsScreen(),
+        HadethContnt.routeName: (context) => const HadethContnt(),
+        AzkarDetails.routeName: (context) => const AzkarDetails(),
+        BookMarksDetails.routeName : (context) => const BookMarksDetails()
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
 
 class AzkarNameWidget extends StatelessWidget {
-  String title;
-  int index;
-  AzkarNameWidget(this.title,this.index, {super.key});
+  final String title;
+  final int index;
+  const AzkarNameWidget(this.title,this.index, {super.key});
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,7 +17,7 @@ class AzkarNameWidget extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
     );

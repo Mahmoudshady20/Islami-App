@@ -5,6 +5,8 @@ import 'package:islamirevision/ui/home/hadeth/hadethnumber.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethScreen extends StatefulWidget {
+  const HadethScreen({super.key});
+
   @override
   State<HadethScreen> createState() => _HadethScreenState();
 }
@@ -30,7 +32,7 @@ class _HadethScreenState extends State<HadethScreen> {
           margin: const EdgeInsets.only(bottom: 4),
         ),
         Text(AppLocalizations.of(context)!.hadeth_title,
-          style: Theme.of(context).textTheme.headline3,),
+          style: Theme.of(context).textTheme.displaySmall,),
         Container(
           width: double.infinity,
           color: Theme.of(context).dividerColor,

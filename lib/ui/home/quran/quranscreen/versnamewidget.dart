@@ -4,17 +4,17 @@ import 'package:islamirevision/ui/home/quran/quranscreen/suradetails.dart';
 import 'package:quran/quran.dart'as quran;
 
 class VerseNameWidget extends StatelessWidget {
-  String titlearabic;
-  String titleenglish;
-  int index;
-  VerseNameWidget({required this.titlearabic,required this.index,required this.titleenglish,});
+  final String titleArabic;
+  final String titleEnglish;
+  final int index;
+  const VerseNameWidget({super.key, required this.titleArabic,required this.index,required this.titleEnglish,});
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
         SharedPrefs.setLastNumberOfSurahRead(index+1);
         Navigator.pushNamed(context, SuraDetailsScreen.routeName,
-        arguments: SuraDetailsScreenArgs(titlearabic, index)
+        arguments: SuraDetailsScreenArgs(titleArabic, index)
         );
       },
       child: Container(
@@ -23,20 +23,20 @@ class VerseNameWidget extends StatelessWidget {
         child: Row(
           children: [
             Text(quran.getVerseEndSymbol(index+1)),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(titleenglish,style: Theme.of(context).textTheme.headline4),
-                Text('${quran.getVerseCount(index+1)} Verses', style: Theme.of(context).textTheme.headline2?.copyWith(
+                Text(titleEnglish,style: Theme.of(context).textTheme.headlineMedium),
+                Text('${quran.getVerseCount(index+1)} Verses', style: Theme.of(context).textTheme.displayMedium?.copyWith(
                   fontSize: 16
                 ), ),
               ],
             ),
-            Spacer(),
-            Text(titlearabic,style: Theme.of(context).textTheme.headline6),
+            const Spacer(),
+            Text(titleArabic,style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
       ),

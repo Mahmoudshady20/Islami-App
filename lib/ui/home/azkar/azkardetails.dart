@@ -5,6 +5,8 @@ import 'package:islamirevision/ui/home/azkar/azkarcontent.dart';
 class AzkarDetails extends StatefulWidget {
   static const String routeName = 'azkardetails';
 
+  const AzkarDetails({super.key});
+
   @override
   State<AzkarDetails> createState() => _AzkarDetailsState();
 }
@@ -26,7 +28,7 @@ class _AzkarDetailsState extends State<AzkarDetails> {
       ),
       body: Card(
         elevation: 24,
-        margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+        margin: const EdgeInsets.symmetric(vertical: 48, horizontal: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),

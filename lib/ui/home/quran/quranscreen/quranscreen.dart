@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class QuranScreen extends StatefulWidget {
 
-  QuranScreen({super.key});
+  const QuranScreen({super.key});
 
   @override
   State<QuranScreen> createState() => _QuranScreenState();
@@ -253,7 +253,7 @@ class _QuranScreenState extends State<QuranScreen> {
   Widget build(BuildContext context) {
     VerseModel versemodel = VerseModel(suraNumber: SharedPrefs.getLastNumberOfSurahRead(), verse: 'verse');
     var provider = Provider.of<SettingProvider>(context);
-    Future.delayed(Duration(milliseconds: 500,), (){
+    Future.delayed(const Duration(milliseconds: 500,), (){
       setState(() {
         counter = 0;
       });
@@ -262,7 +262,7 @@ class _QuranScreenState extends State<QuranScreen> {
       children: [
         Expanded(
           flex: 1,
-          child: counter ==1 ? Center(child: CircularProgressIndicator(),) : InkWell(
+          child: counter ==1 ? const Center(child: CircularProgressIndicator(),) : InkWell(
             onTap: (){
               Navigator.pushNamed(context, SuraDetailsScreen.routeName,
                   arguments: SuraDetailsScreenArgs(names[versemodel.suraNumber-1], versemodel.suraNumber-1)
@@ -271,7 +271,7 @@ class _QuranScreenState extends State<QuranScreen> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     end: Alignment.topRight,
                     begin: Alignment.bottomLeft,
                     colors: [ // B675FD
@@ -281,11 +281,11 @@ class _QuranScreenState extends State<QuranScreen> {
                     ],
                   ),
               ),
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                   horizontal: 35,
                   vertical: 20
               ),
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 20,
               ),
               child: Row(
@@ -295,19 +295,19 @@ class _QuranScreenState extends State<QuranScreen> {
                     children: [
                       Row(
                         children: [
-                          ImageIcon(
+                          const ImageIcon(
                             AssetImage(
                               'assets/images/quranicon.png',
                             ),
                             color: Colors.white,
                             size: 25,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
                             '${AppLocalizations.of(context)?.lastread}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w400
@@ -315,11 +315,11 @@ class _QuranScreenState extends State<QuranScreen> {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
-                      Text('${provider.isEnglish() ? namesEnglish[SharedPrefs.getLastNumberOfSurahRead()-1] : names[SharedPrefs.getLastNumberOfSurahRead()-1]}',
-                        style: TextStyle(
+                      Text(provider.isEnglish() ? namesEnglish[SharedPrefs.getLastNumberOfSurahRead()-1] : names[SharedPrefs.getLastNumberOfSurahRead()-1],
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 22,
                           fontWeight: FontWeight.w500
@@ -344,7 +344,7 @@ class _QuranScreenState extends State<QuranScreen> {
         ),
         Text(
           AppLocalizations.of(context)!.quran_title,
-          style: Theme.of(context).textTheme.headline3, //#BBC4CE59
+          style: Theme.of(context).textTheme.displaySmall, //#BBC4CE59
         ),
         Container(
           width: double.infinity,
@@ -358,7 +358,7 @@ class _QuranScreenState extends State<QuranScreen> {
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return VerseNameWidget(
-                   titlearabic:  names[index],index: index, titleenglish: namesEnglish[index],);
+                   titleArabic:  names[index],index: index, titleEnglish: namesEnglish[index],);
               },
               itemCount: names.length,
               separatorBuilder: (buildcontext, index) => Container(

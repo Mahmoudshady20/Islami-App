@@ -46,38 +46,38 @@ class MyThemeData{
     scaffoldBackgroundColor: Colors.white,//Color(0xFFFFFFFF),
     textTheme: const TextTheme(
       /// title of application in splash screen
-      headline1: TextStyle(
+      displayLarge: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 28,
         color: Color(0xFF672CBC),
       ),
       /// text in splash screen
-      headline2: TextStyle(
+      displayMedium: TextStyle(
         color: Color(0xFF8789A3),
         fontSize: 18
       ),
       // ignore: deprecated_member_use
-      headline3: TextStyle(
+      displaySmall: TextStyle(
         // ex.Screen title
           color: lightMainTextColor,
           fontSize: 20,
       ),
       // ignore: deprecated_member_use
-      headline5: TextStyle(
+      headlineSmall: TextStyle(
         // sub headers
           fontSize: 24,
           color: lightMainTextColor),
       // ignore: deprecated_member_use
-      bodyText1: TextStyle(fontSize: 24, color: lightMainTextColor),
+      bodyLarge: TextStyle(fontSize: 24, color: lightMainTextColor),
       // ignore: deprecated_member_use
-      bodyText2: TextStyle(fontSize: 20, color: lightMainTextColor),
+      bodyMedium: TextStyle(fontSize: 20, color: lightMainTextColor),
       /// used in verse name widget to name of English
-      headline4: TextStyle(
+      headlineMedium: TextStyle(
         fontSize: 18,
         color: Color(0xFF240F4F),
       ),
       /// used in verse name widget to name of arabic
-      headline6: TextStyle(
+      titleLarge: TextStyle(
         fontSize: 20,
         color: Color(0xFF863ED5),
       ),
@@ -111,37 +111,45 @@ class MyThemeData{
     scaffoldBackgroundColor: const Color(0xFF040C23),
     textTheme: const TextTheme(
       // ignore: deprecated_member_use
-    headline3: TextStyle(
+      /// headline3
+    displaySmall: TextStyle(
         // ex.Screen title
           color: darkMainTextColor,
           fontSize: 20),
       // ignore: deprecated_member_use
-      headline5: TextStyle(
+      /// headline5
+      headlineSmall: TextStyle(
         // sub headers
           fontSize: 24,
           color: darkMainTextColor),
       // ignore: deprecated_member_use
-      bodyText1: TextStyle(fontSize: 24, color: darkMainTextColor),
+      /// bodyText1
+      bodyLarge: TextStyle(fontSize: 24, color: darkMainTextColor),
       // ignore: deprecated_member_use
-      bodyText2: TextStyle(fontSize: 20, color: darkMainTextColor),
+      ///bodyText2
+      bodyMedium: TextStyle(fontSize: 20, color: darkMainTextColor),
       /// title of application in splash screen
-      headline1: TextStyle(
+      ///headline1
+      displayLarge: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 28,
         color: Colors.white,
       ),
       /// used in verse name widget to name of English
-      headline4: TextStyle(
+      ///headline4
+      headlineMedium: TextStyle(
         fontSize: 16,
         color: Colors.white,
       ),
       /// used in verse name widget to name of arabic
-      headline6: TextStyle(
+      ///headline6
+      titleLarge: TextStyle(
         fontSize: 18,
         color: Color(0xFFA44AFF),
       ),
       /// text in splash screen & in verse name widget but the size is 16
-      headline2: TextStyle(
+      ///headline2
+      displayMedium: TextStyle(
           color: Color(0xFF8789A3),
           fontSize: 18
       ),

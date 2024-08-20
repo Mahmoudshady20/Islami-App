@@ -4,12 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageBottomSheet extends StatelessWidget {
+  const LanguageBottomSheet({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -17,15 +19,15 @@ class LanguageBottomSheet extends StatelessWidget {
             onTap: (){
               provider.enableArabic();
             },
-            child: provider.myLocal == Locale('ar') ?
+            child: provider.myLocal == const Locale('ar') ?
             getSelectedWidget(AppLocalizations.of(context)!.arabic, context) : getUnSelectedWidget(AppLocalizations.of(context)!.arabic, context),
           ),
-          SizedBox(height: 12,),
+          const SizedBox(height: 12,),
           InkWell(
             onTap: (){
               provider.enableEnglish();
             },
-            child: provider.myLocal == Locale('en')  ?
+            child: provider.myLocal == const Locale('en')  ?
             getSelectedWidget(AppLocalizations.of(context)!.english, context) : getUnSelectedWidget(AppLocalizations.of(context)!.english, context),
           )
         ],
@@ -40,7 +42,7 @@ class LanguageBottomSheet extends StatelessWidget {
           title,
           style: Theme.of(context)
               .textTheme
-              .bodyText2,
+              .bodyMedium,
         ),
         Icon(
           Icons.check,
@@ -53,7 +55,7 @@ class LanguageBottomSheet extends StatelessWidget {
   Widget getUnSelectedWidget(String title, BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
     );
   }
 }

@@ -4,11 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeBottomSheet extends StatelessWidget {
+  const ThemeBottomSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -22,7 +24,7 @@ class ThemeBottomSheet extends StatelessWidget {
                 : getUnSelectedWidget(
                     AppLocalizations.of(context)!.light, context),
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           InkWell(
@@ -45,7 +47,7 @@ class ThemeBottomSheet extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
         Icon(
           Icons.check,
@@ -58,7 +60,7 @@ class ThemeBottomSheet extends StatelessWidget {
   Widget getUnSelectedWidget(String title, BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
     );
   }
 }

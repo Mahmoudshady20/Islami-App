@@ -3,7 +3,7 @@ import 'package:islamirevision/ui/home/azkar/azkarnamewidget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AzkarScreen extends StatelessWidget {
-  List<String> names = [
+  final List<String> names = [
     'أذكار الصباح',
     'أذكار المساء',
     'مايقال عن الاستيقاظ',
@@ -41,7 +41,7 @@ class AzkarScreen extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 4),
         ),
         Text(AppLocalizations.of(context)!.azkar_title,
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
         Container(
           width: double.infinity,
@@ -52,7 +52,7 @@ class AzkarScreen extends StatelessWidget {
         Expanded(
             flex: 3,
             child: ListView.separated(
-              itemBuilder: (BuildContext,index){
+              itemBuilder: (context,index){
                 return AzkarNameWidget(names[index],index);
               },
               itemCount: names.length,

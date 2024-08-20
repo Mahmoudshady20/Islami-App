@@ -10,6 +10,8 @@ import 'package:islamirevision/ui/home/settings/settingscreen.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homescreen';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -17,12 +19,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedTabIndex = 0;
   List<Widget> tabs = [
-    QuranScreen(),
-    HadethScreen(),
-    SebhaScreen(),
+    const QuranScreen(),
+    const HadethScreen(),
+    const SebhaScreen(),
     AzkarScreen(),
-    BookMarksDetails(),
-    SettingScreen(),
+    const BookMarksDetails(),
+    const SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

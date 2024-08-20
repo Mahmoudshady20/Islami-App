@@ -5,9 +5,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/quran.dart'as quran;
 
 class BookMarkWidget extends StatelessWidget {
-  VerseModel versemodel;
-  Function voidCallBack;
-  List<String> names = [
+  final VerseModel verseModel;
+  final Function voidCallBack;
+  final List<String> names = [
     "الفاتحه",
     "البقرة",
     "آل عمران",
@@ -124,13 +124,13 @@ class BookMarkWidget extends StatelessWidget {
     "الناس"
   ];
 
-  int index;
-  BookMarkWidget({required this.versemodel,required this.voidCallBack,required this.index});
+  final int index;
+  BookMarkWidget({super.key, required this.verseModel,required this.voidCallBack,required this.index});
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Theme.of(context).hintColor,
         borderRadius: BorderRadius.circular(15)
@@ -138,14 +138,14 @@ class BookMarkWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${quran.getSurahNameArabic(versemodel.suraNumber)}',
-          style: Theme.of(context).textTheme.headline5,
+          Text(quran.getSurahNameArabic(verseModel.suraNumber),
+          style: Theme.of(context).textTheme.headlineSmall,
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text(versemodel.verse,
-          style: Theme.of(context).textTheme.bodyText2,
+          Text(verseModel.verse,
+          style: Theme.of(context).textTheme.bodyMedium,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,7 +156,7 @@ class BookMarkWidget extends StatelessWidget {
                 ),
                 onPressed: (){
                 Navigator.pushNamed(context, SuraDetailsScreen.routeName,
-                    arguments: SuraDetailsScreenArgs(names[versemodel.suraNumber-1], versemodel.suraNumber-1)
+                    arguments: SuraDetailsScreenArgs(names[verseModel.suraNumber-1], verseModel.suraNumber-1)
                 );
               }, child: Text(AppLocalizations.of(context)!.go),
               ),

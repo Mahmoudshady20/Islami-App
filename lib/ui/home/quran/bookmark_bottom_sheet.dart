@@ -8,10 +8,10 @@ import 'package:quran/quran.dart'as quran;
 class BookMarkBottomSheet extends StatefulWidget {
 
 
-  int verseNumber;
-  int suraNumber;
+  final int verseNumber;
+  final int suraNumber;
 
-  BookMarkBottomSheet({required this.verseNumber,required this.suraNumber});
+  const BookMarkBottomSheet({super.key, required this.verseNumber,required this.suraNumber});
 
   @override
   State<BookMarkBottomSheet> createState() => _BookMarkBottomSheetState();
@@ -25,7 +25,7 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Form(
         key: formKey,
         child: Column(
@@ -36,12 +36,12 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
               height: MediaQuery.of(context).size.height*0.09,
             ),
             TextFormField(
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
               controller: numberController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 label: Text(AppLocalizations.of(context)!.boodmark,),
-                labelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+                labelStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontSize: 18,
               ),
               ),
