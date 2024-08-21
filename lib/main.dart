@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
-import 'package:islamirevision/features/azkar_feature/azkar_details.dart';
+import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:islamirevision/features/home/home_screen.dart';
 import 'package:islamirevision/features/home/quran/bookmarks_details.dart';
 import 'package:islamirevision/features/home/quran/quranscreen/suradetails.dart';
@@ -29,7 +28,7 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
@@ -40,7 +39,6 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         SuraDetailsScreen.routeName: (context) => const SuraDetailsScreen(),
-        AzkarDetails.routeName: (context) => const AzkarDetails(),
         BookMarksDetails.routeName : (context) => const BookMarksDetails()
       },
       theme: MyThemeData.lightTheme,

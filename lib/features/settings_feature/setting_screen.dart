@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:islamirevision/features/settings_feature/language_bottom_sheet.dart';
 import 'package:islamirevision/features/settings_feature/theme_bottom_sheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -55,7 +55,7 @@ class SettingScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: (){
-              showlanBottomSheet(context);
+              showLanBottomSheet(context);
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 12),
@@ -82,7 +82,7 @@ class SettingScreen extends StatelessWidget {
         context: context,
         builder: (context) => const ThemeBottomSheet(),);
   }
-  void showlanBottomSheet(BuildContext context){
+  void showLanBottomSheet(BuildContext context){
     showModalBottomSheet(
       context: context,
       builder: (context) => const LanguageBottomSheet(),);

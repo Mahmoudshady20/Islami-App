@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
+import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:provider/provider.dart';
 
 class SebhaHeader extends StatelessWidget {
