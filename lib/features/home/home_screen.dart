@@ -18,11 +18,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedTabIndex = 0;
-  List<Widget> tabs = [
+  final List<Widget> tabs = [
     const QuranScreen(),
     const HadethScreen(),
     const SebhaScreen(),
-    AzkarScreen(),
+    const AzkarScreen(),
     const BookMarksDetails(),
     const SettingScreen(),
   ];

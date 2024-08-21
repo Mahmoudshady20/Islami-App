@@ -3,7 +3,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
 import 'package:islamirevision/features/azkar_feature/azkar_details.dart';
-import 'package:islamirevision/features/hadeth_feature/hadeth_content.dart';
 import 'package:islamirevision/features/home/home_screen.dart';
 import 'package:islamirevision/features/home/quran/bookmarks_details.dart';
 import 'package:islamirevision/features/home/quran/quranscreen/suradetails.dart';
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         SuraDetailsScreen.routeName: (context) => const SuraDetailsScreen(),
-        HadethContnt.routeName: (context) => const HadethContnt(),
         AzkarDetails.routeName: (context) => const AzkarDetails(),
         BookMarksDetails.routeName : (context) => const BookMarksDetails()
       },

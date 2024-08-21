@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData{
-  static const Color lightPrimryColor = Color(0xFFB7935F);
-  static const Color darkPrimryColor = Color(0xFF141A2E);
+  static const Color lightPrimaryColor = Color(0xFFB7935F);
+  static const Color darkPrimaryColor = Color(0xFF141A2E);
   static const Color lightMainTextColor = Color(0xFF242424);
   static const Color darkMainTextColor = Color(0xFFF8F8F8);
-  static const Color lightAccetentColor = Color(0x59BBC4CE);
+  static const Color lightAccentColor = Color(0x59BBC4CE);
   static const Color darkAccentColor = Color(0x597B80AD);
 
   static var lightTheme = ThemeData(
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: lightPrimryColor
+      color: lightPrimaryColor
     ),
-    primaryColor: lightPrimryColor,
-    hintColor: lightAccetentColor,
-    dividerColor: darkPrimryColor,
+    primaryColor: lightPrimaryColor,
+    hintColor: lightAccentColor,
+    dividerColor: darkPrimaryColor,
     cardColor: Colors.white,
     appBarTheme: const AppBarTheme(
       iconTheme: IconThemeData(
@@ -88,9 +88,9 @@ class MyThemeData{
     progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: darkAccentColor
     ),
-    primaryColor: darkPrimryColor,
+    primaryColor: darkPrimaryColor,
     hintColor: darkAccentColor,
-    cardColor: darkPrimryColor,
+    cardColor: darkPrimaryColor,
     appBarTheme: const AppBarTheme(
       iconTheme: IconThemeData(
         color: Colors.white,
@@ -106,7 +106,7 @@ class MyThemeData{
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFFACC1D),
       unselectedItemColor: Colors.white,
-      backgroundColor: darkPrimryColor
+      backgroundColor: darkPrimaryColor
     ),
     scaffoldBackgroundColor: const Color(0xFF040C23),
     textTheme: const TextTheme(
@@ -155,7 +155,7 @@ class MyThemeData{
       ),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor: darkPrimryColor,
+      backgroundColor: darkPrimaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(12),
@@ -163,6 +163,6 @@ class MyThemeData{
         ),
       )
     ),
-    dividerColor: lightPrimryColor,
+    dividerColor: lightPrimaryColor,
   );
 }

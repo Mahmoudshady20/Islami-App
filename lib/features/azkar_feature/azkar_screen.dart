@@ -3,7 +3,7 @@ import 'package:islamirevision/features/azkar_feature/azkar_name_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AzkarScreen extends StatelessWidget {
-  final List<String> names = [
+  static const List<String> names = [
     'أذكار الصباح',
     'أذكار المساء',
     'مايقال عن الاستيقاظ',
@@ -23,7 +23,7 @@ class AzkarScreen extends StatelessWidget {
     'ما يقال عند الدخول إلى المنزل',
   ];
 
-  AzkarScreen({super.key});
+  const AzkarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

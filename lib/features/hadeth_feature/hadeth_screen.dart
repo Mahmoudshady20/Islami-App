@@ -1,79 +1,90 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:islamirevision/features/hadeth_feature/hadeth.dart';
-import 'package:islamirevision/features/hadeth_feature/hadeth_number.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islamirevision/core/utils/app_styles.dart';
+import 'package:islamirevision/features/hadeth_feature/data/hadith_view_model_cubit.dart';
+import 'package:islamirevision/features/hadeth_feature/data/model/hadith_model.dart';
+import 'package:islamirevision/features/hadeth_feature/data/state/hadith_state.dart';
+import 'package:islamirevision/features/hadeth_feature/widget/hadeth_content.dart';
+import 'package:islamirevision/features/hadeth_feature/widget/custom_divider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamirevision/features/hadeth_feature/widget/hadeth_number.dart';
+import 'package:islamirevision/features/hadeth_feature/widget/hadith_loading_state.dart';
+import 'package:islamirevision/features/hadeth_feature/widget/hadith_logo.dart';
 
 class HadethScreen extends StatefulWidget {
   const HadethScreen({super.key});
-
   @override
   State<HadethScreen> createState() => _HadethScreenState();
 }
 
 class _HadethScreenState extends State<HadethScreen> {
-  List<Hadeth> allHadethList = [];
+  final HadithViewModelCubit hadithViewModelCubit = HadithViewModelCubit();
 
   @override
   Widget build(BuildContext context) {
-    if(allHadethList.isEmpty){
-      readHadethFile();
-    }
-    return Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Image.asset('assets/images/hadethlogo.png'),
-        ),
-        Container(
-          width: double.infinity,
-          color: Theme.of(context).dividerColor,
-          height: 2,
-          margin: const EdgeInsets.only(bottom: 4),
-        ),
-        Text(AppLocalizations.of(context)!.hadeth_title,
-          style: Theme.of(context).textTheme.displaySmall,),
-        Container(
-          width: double.infinity,
-          color: Theme.of(context).dividerColor,
-          height: 2,
-          margin: const EdgeInsets.only(top: 4),
-        ),
-        Expanded(
-          flex: 3,
-            child: ListView.separated(
-              physics:  const BouncingScrollPhysics(),
-                itemBuilder: (buildcontext,index){
-                  return HadethNumber(allHadethList[index].title,allHadethList[index].content,index);
-                },
-              itemCount: allHadethList.length,
-              separatorBuilder: (buildcontext,index)=>Container(
-                width: double.infinity,
-                color: Theme.of(context).dividerColor,
-                height: 2,
+    return BlocBuilder<HadithViewModelCubit, HadithStata>(
+      bloc: hadithViewModelCubit..init(),
+      builder: (context, state) {
+        if (state is HadithLoadingStata) {
+          return const HadithLoading();
+        } else if (state is HadithInitialStata) {
+          return Column(
+            children: [
+              const HadithLogo(),
+              const CustomDivider(
+                bottom: 4,
               ),
+              Text(
+                AppLocalizations.of(context)!.hadeth_title,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      fontSize: AppStyles.getResponsiveFontSize(
+                        context,
+                        fontSize: 28,
+                      ),
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+              const CustomDivider(
+                top: 4,
+              ),
+              Expanded(
+                flex: 3,
+                child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (buildcontext, index) {
+                    return HadethNumber(
+                      state.allHadethList[index].title,
+                      onTap: () {
+                        hadithViewModelCubit.buildHadithScreen(index);
+                      },
+                    );
+                  },
+                  itemCount: state.allHadethList.length,
+                  separatorBuilder: (buildcontext, index) =>
+                      const CustomDivider(),
+                ),
+              )
+            ],
+          );
+        } else if (state is HadithSucceedStata) {
+          return HadethContent(
+            hadithModel: HadithModel(
+              title: state.allHadethList[state.index].title,
+              content: state.allHadethList[state.index].content,
             ),
-        ),
-      ],
+            onPressed: () {
+              hadithViewModelCubit.copy(state.index);
+            },
+            onPressed2: () {
+              hadithViewModelCubit.allHadithBackButton();
+            },
+          );
+        } else {
+          return const Center(
+            child: Text('Something error'),
+          );
+        }
+      },
     );
-  }
-
-  void readHadethFile() async{
-    List<Hadeth> hadethList = [];
-    String text = await rootBundle.loadString('assets/files/ahadeth.txt');
-    List<String> allHadethContent = text.trim().split('#');
-    for(int i=0;i<allHadethContent.length;i++){
-      String singleHadethContent = allHadethContent[i];
-      List<String> lines = singleHadethContent.trim().split('\n');
-      String title = lines[0];
-      lines.removeAt(0);
-      String content = lines.join('\n');
-      Hadeth hadeth = Hadeth(title: title,content:  content);
-      hadethList.add(hadeth);
-    }
-    allHadethList = hadethList;
-    setState(() {
-
-    });
   }
 }
