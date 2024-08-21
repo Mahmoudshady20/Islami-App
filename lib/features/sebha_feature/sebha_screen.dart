@@ -1,160 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islamirevision/providers/setting_provider.dart';
-import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
-import 'package:provider/provider.dart';
+import 'package:islamirevision/core/utils/app_styles.dart';
+import 'package:islamirevision/features/sebha_feature/data/sebha_cubit.dart';
+import 'package:islamirevision/features/sebha_feature/data/sebha_state.dart';
+import 'package:islamirevision/features/sebha_feature/widget/sebha_content.dart';
+import 'package:islamirevision/features/sebha_feature/widget/sebha_count.dart';
+import 'package:islamirevision/features/sebha_feature/widget/sebha_header.dart';
 
-class SebhaScreen extends StatefulWidget {
+class SebhaScreen extends StatelessWidget {
   const SebhaScreen({super.key});
-
-  @override
-  State<SebhaScreen> createState() => _SebhaScreenState();
-}
-
-class _SebhaScreenState extends State<SebhaScreen> {
-  List<int> counter = [];
-  List<String> tasbeh = [
-    'سُبْحَانَ اللَّهِ',
-    'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ',
-    'لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ',
-    'الْحَمْدُ للّهِ رَبِّ الْعَالَمِينَ',
-    'الْلَّهُم صَلِّ وَسَلِم وَبَارِك عَلَى سَيِّدِنَا مُحَمَّد',
-    'أستغفر الله'
-  ];
+  static SebhaCubit sebhaCubit = SebhaCubit();
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<SettingProvider>(context);
-    counter.add(SharedPrefs.getCounter1());
-    counter.add(SharedPrefs.getCounter2());
-    counter.add(SharedPrefs.getCounter3());
-    counter.add(SharedPrefs.getCounter4());
-    counter.add(SharedPrefs.getCounter5());
-    counter.add(SharedPrefs.getCounter6());
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            flex: 2,
-            child: Image.asset(provider.themeMode == ThemeMode.light
-                ? 'assets/images/sebhalogo.png'
-                : 'assets/images/darksebhalogo.png'),
-          ),
-          Text(
-            AppLocalizations.of(context)!.sebha_title,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-          Expanded(
-            child: PageView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (buildcontext, index) => Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(15),
-                    //padding: const EdgeInsets.all(15),
-                    width: 69,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).hintColor,
-                      borderRadius: BorderRadius.circular(8),
+    return BlocBuilder<SebhaCubit, SebhaState>(
+      bloc: sebhaCubit,
+      builder: (context, state) {
+        return Column(
+          children: [
+            const SebhaHeader(),
+            Text(
+              AppLocalizations.of(context)!.sebha_title,
+              style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    fontSize: AppStyles.getResponsiveFontSize(
+                      context,
+                      fontSize: 24,
                     ),
-                    child: Center(
-                        child: Text(
-                          '${counter[index]}',
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        )),
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 7,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              counter[index]++;
-                              if(index==0){
-                                SharedPrefs.setCounter1(counter[index]);
-                              } else if(index==1){
-                                SharedPrefs.setCounter2(counter[index]);
-                              }
-                              else if(index==2){
-                                SharedPrefs.setCounter3(counter[index]);
-                              }else if(index==3){
-                                SharedPrefs.setCounter4(counter[index]);
-                              }
-                              else if(index==4){
-                                SharedPrefs.setCounter5(counter[index]);
-                              }else if(index==5){
-                                SharedPrefs.setCounter6(counter[index]);
-                              }
-                            });
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.all(5),
-                            width: double.infinity,
-                            height: 65,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).hintColor,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Center(
-                              child: Text(
-                                tasbeh[index],
-                                style: Theme.of(context).textTheme.headlineSmall,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              counter[index] = 0;
-                              if(index==0){
-                                SharedPrefs.setCounter1(counter[index]);
-                              }else if(index==1){
-                                SharedPrefs.setCounter2(counter[index]);
-                              }
-                              else if(index==2){
-                                SharedPrefs.setCounter3(counter[index]);
-                              }else if(index==3){
-                                SharedPrefs.setCounter4(counter[index]);
-                              }
-                              else if(index==4){
-                                SharedPrefs.setCounter5(counter[index]);
-                              }else if(index==5){
-                                SharedPrefs.setCounter6(counter[index]);
-                              }
-                            });
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.all(5),
-                            width: double.infinity,
-                            height: 65,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).hintColor,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Center(
-                              child: Icon(Icons.refresh,color: provider.isDark() ? Colors.white : Colors.black,),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              itemCount: tasbeh.length,
-              padEnds: false,
             ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-        ],
-      ),
+            Expanded(
+              child: PageView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (buildcontext, index) => Column(
+                  children: [
+                    SebhaCount(count: sebhaCubit.counter[index].toString()),
+                    SebhaContent(
+                      title: sebhaCubit.tasbeh[index],
+                      onTapIncrement: () {
+                        sebhaCubit.incrementSebha(index);
+                      },
+                      onTapRestart: () {
+                        sebhaCubit.restartSebha(index);
+                      },
+                    ),
+                  ],
+                ),
+                itemCount: sebhaCubit.tasbeh.length,
+                padEnds: false,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+          ],
+        );
+      },
     );
   }
 }
