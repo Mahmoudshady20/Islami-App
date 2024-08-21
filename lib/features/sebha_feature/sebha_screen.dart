@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
-import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
+import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatefulWidget {

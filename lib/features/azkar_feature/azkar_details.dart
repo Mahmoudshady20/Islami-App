@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamirevision/ui/home/azkar/azkarcontent.dart';
+import 'package:islamirevision/features/azkar_feature/azkar_content.dart';
 
 class AzkarDetails extends StatefulWidget {
   static const String routeName = 'azkardetails';

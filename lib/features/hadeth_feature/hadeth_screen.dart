@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
-import 'package:islamirevision/ui/home/hadeth/hadethnumber.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth_number.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethScreen extends StatefulWidget {

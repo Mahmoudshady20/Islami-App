@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/ui/home/azkar/azkarnamewidget.dart';
+import 'package:islamirevision/features/azkar_feature/azkar_name_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AzkarScreen extends StatelessWidget {

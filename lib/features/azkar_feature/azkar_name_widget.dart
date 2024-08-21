@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/ui/home/azkar/azkardetails.dart';
+import 'package:islamirevision/features/azkar_feature/azkar_details.dart';
 
 class AzkarNameWidget extends StatelessWidget {
   final String title;

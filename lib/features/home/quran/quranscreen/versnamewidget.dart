@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
-import 'package:islamirevision/ui/home/quran/quranscreen/suradetails.dart';
+import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
+import 'package:islamirevision/features/home/quran/quranscreen/suradetails.dart';
 import 'package:quran/quran.dart'as quran;
 
 class VerseNameWidget extends StatelessWidget {

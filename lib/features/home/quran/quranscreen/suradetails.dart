@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamirevision/providers/setting_provider.dart';
-import 'package:islamirevision/ui/home/quran/bookmark_bottom_sheet.dart';
-import 'package:islamirevision/ui/home/quran/quranscreen/versecontent.dart';
+import 'package:islamirevision/features/home/quran/bookmark_bottom_sheet.dart';
+import 'package:islamirevision/features/home/quran/quranscreen/versecontent.dart';
 import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/sharedpreferences/sharedpreferences.dart';
+import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
 
 class SettingProvider extends ChangeNotifier {
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth.dart';
 
 class HadethContnt extends StatelessWidget {
   static const String routeName = 'hadethcontent';

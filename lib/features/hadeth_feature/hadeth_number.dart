@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/ui/home/hadeth/hadeth.dart';
-import 'package:islamirevision/ui/home/hadeth/hadethcontent.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth_content.dart';
 
 class HadethNumber extends StatelessWidget {
   final String title;

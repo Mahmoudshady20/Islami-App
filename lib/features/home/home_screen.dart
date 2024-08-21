@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/ui/home/azkar/azkarscreen.dart';
-import 'package:islamirevision/ui/home/hadeth/hadethscreen.dart';
-import 'package:islamirevision/ui/home/quran/bookmarks_details.dart';
-import 'package:islamirevision/ui/home/quran/quranscreen/quranscreen.dart';
-import 'package:islamirevision/ui/home/sebha/sebhascreen.dart';
+import 'package:islamirevision/features/azkar_feature/azkar_screen.dart';
+import 'package:islamirevision/features/hadeth_feature/hadeth_screen.dart';
+import 'package:islamirevision/features/home/quran/bookmarks_details.dart';
+import 'package:islamirevision/features/home/quran/quranscreen/quranscreen.dart';
+import 'package:islamirevision/features/sebha_feature/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islamirevision/ui/home/settings/settingscreen.dart';
+import 'package:islamirevision/features/settings_feature/setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = 'homescreen';
+  static const String routeName = 'homeScreen';
 
   const HomeScreen({super.key});
 
