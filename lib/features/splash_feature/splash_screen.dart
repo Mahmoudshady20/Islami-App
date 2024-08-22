@@ -4,7 +4,7 @@ import 'package:islamirevision/features/home/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = 'splashscreen';
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

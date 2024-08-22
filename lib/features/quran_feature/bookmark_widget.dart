@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islamirevision/features/home/quran/quranscreen/suradetails.dart';
-import 'package:islamirevision/features/home/quran/quranscreen/verse_model.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:quran/quran.dart'as quran;
+import 'package:islamirevision/features/quran_feature/widget/sura_details.dart';
+import 'package:islamirevision/features/quran_feature/model/verse_model.dart';
+import 'package:quran/quran.dart' as quran;
 
 class BookMarkWidget extends StatelessWidget {
   final VerseModel verseModel;
@@ -121,31 +122,37 @@ class BookMarkWidget extends StatelessWidget {
     "المسد",
     "الإخلاص",
     "الفلق",
-    "الناس"
+    "الناس",
   ];
 
   final int index;
-  BookMarkWidget({super.key, required this.verseModel,required this.voidCallBack,required this.index});
+  BookMarkWidget({
+    super.key,
+    required this.verseModel,
+    required this.voidCallBack,
+    required this.index,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Theme.of(context).hintColor,
-        borderRadius: BorderRadius.circular(15)
-      ),
+          color: Theme.of(context).hintColor,
+          borderRadius: BorderRadius.circular(15)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(quran.getSurahNameArabic(verseModel.suraNumber),
-          style: Theme.of(context).textTheme.headlineSmall,
+          Text(
+            quran.getSurahNameArabic(verseModel.suraNumber),
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(verseModel.verse,
-          style: Theme.of(context).textTheme.bodyMedium,
+          Text(
+            verseModel.verse,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,16 +161,28 @@ class BookMarkWidget extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).dividerColor,
                 ),
-                onPressed: (){
-                Navigator.pushNamed(context, SuraDetailsScreen.routeName,
-                    arguments: SuraDetailsScreenArgs(names[verseModel.suraNumber-1], verseModel.suraNumber-1)
-                );
-              }, child: Text(AppLocalizations.of(context)!.go),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    SuraDetailsScreen.routeName,
+                    arguments: SuraDetailsScreenArgs(
+                        names[verseModel.suraNumber - 1],
+                        verseModel.suraNumber - 1),
+                  );
+                },
+                child: Text(AppLocalizations.of(context)!.go,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    )),
               ),
               IconButton(
-                  onPressed: (){
+                  onPressed: () {
                     voidCallBack(index);
-              }, icon: Icon(Icons.delete_forever,color: Theme.of(context).dividerColor,))
+                  },
+                  icon: Icon(
+                    Icons.delete_forever,
+                    color: Theme.of(context).dividerColor,
+                  ))
             ],
           )
         ],

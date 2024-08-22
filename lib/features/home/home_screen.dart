@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamirevision/features/azkar_feature/azkar_screen.dart';
 import 'package:islamirevision/features/hadeth_feature/hadeth_screen.dart';
-import 'package:islamirevision/features/home/quran/bookmarks_details.dart';
-import 'package:islamirevision/features/home/quran/quranscreen/quranscreen.dart';
+import 'package:islamirevision/features/quran_feature/bookmarks_details.dart';
+import 'package:islamirevision/features/quran_feature/quran_screen.dart';
 import 'package:islamirevision/features/sebha_feature/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamirevision/features/settings_feature/setting_screen.dart';

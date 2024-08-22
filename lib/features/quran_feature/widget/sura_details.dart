@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamirevision/features/quran_feature/widget/verse_content.dart';
 import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
-import 'package:islamirevision/features/home/quran/bookmark_bottom_sheet.dart';
-import 'package:islamirevision/features/home/quran/quranscreen/versecontent.dart';
+import 'package:islamirevision/features/quran_feature/bookmark_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
@@ -38,35 +38,50 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         appBar: AppBar(
           actions: [
             IconButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (context) => BookMarkBottomSheet(
-                      verseNumber: chapterContent.length - 1,
-                      suraNumber: test + 1,
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.data_saver_on))
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => BookMarkBottomSheet(
+                    verseNumber: chapterContent.length - 1,
+                    suraNumber: test + 1,
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.data_saver_on,
+              ),
+            )
           ],
-          title: Text(args.title),
+          title: Text(
+            args.title,
+          ),
         ),
         body: Card(
+          color: Theme.of(context).cardColor,
           elevation: 24,
-          margin: const EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+          margin: const EdgeInsets.symmetric(
+            vertical: 48,
+            horizontal: 12,
+          ),
           shape: RoundedRectangleBorder(
             side: BorderSide(
-              color:provider.isDark() ? Colors.white54 :  Colors.black,
+              color: provider.isDark() ? Colors.white54 : Colors.black,
             ),
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(
+              24,
+            ),
           ),
           child: Column(
             children: [
               Expanded(
                 child: chapterContent.isEmpty
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
                     : SingleChildScrollView(
-                        child: VerseContent(chapterContent),
+                        child: VerseContent(
+                          chapterContent,
+                        ),
                       ),
               ),
             ],
@@ -77,7 +92,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   }
 
   void readFile(int index) async {
-    String text = await rootBundle.loadString('assets/files/${index + 1}.txt');
+    String text = await rootBundle.loadString(
+      'assets/files/${index + 1}.txt',
+    );
     chapterContent = text.split(')');
     setState(() {});
   }
@@ -86,5 +103,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 class SuraDetailsScreenArgs {
   String title;
   int index;
-  SuraDetailsScreenArgs(this.title, this.index);
+  SuraDetailsScreenArgs(
+    this.title,
+    this.index,
+  );
 }

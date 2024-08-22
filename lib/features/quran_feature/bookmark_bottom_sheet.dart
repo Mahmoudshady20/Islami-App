@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:islamirevision/features/home/quran/quranscreen/verse_model.dart';
-import 'package:quran/quran.dart'as quran;
-
+import 'package:islamirevision/features/quran_feature/model/verse_model.dart';
+import 'package:quran/quran.dart' as quran;
 
 class BookMarkBottomSheet extends StatefulWidget {
-
-
   final int verseNumber;
   final int suraNumber;
 
-  const BookMarkBottomSheet({super.key, required this.verseNumber,required this.suraNumber});
+  const BookMarkBottomSheet(
+      {super.key, required this.verseNumber, required this.suraNumber});
 
   @override
   State<BookMarkBottomSheet> createState() => _BookMarkBottomSheetState();
@@ -29,47 +27,65 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
       child: Form(
         key: formKey,
         child: Column(
-         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(AppLocalizations.of(context)!.boodmark),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.09,
+              height: MediaQuery.of(context).size.height * 0.09,
             ),
             TextFormField(
               style: Theme.of(context).textTheme.bodyMedium,
               controller: numberController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                label: Text(AppLocalizations.of(context)!.boodmark,),
+                label: Text(
+                  AppLocalizations.of(context)!.boodmark,
+                ),
                 labelStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontSize: 18,
+                      fontSize: 18,
+                    ),
               ),
-              ),
-              validator: (text){
+              validator: (text) {
                 if (text == null || text.trim().isEmpty) {
                   return 'please enter number';
                 }
-                if(int.parse(text)>widget.verseNumber){
+                if (int.parse(text) > widget.verseNumber) {
                   return 'Please enter the valid number';
                 }
-                if(int.parse(text)<0){
+                if (int.parse(text) < 0) {
                   return 'Please enter the valid number';
                 }
                 return null;
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.1,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).dividerColor,
               ),
-              onPressed: (){
+              onPressed: () {
                 addBookMark();
-                addVerse(VerseModel(suraNumber: widget.suraNumber, verse: quran.getVerse(widget.suraNumber,int.parse(numberController.text),verseEndSymbol: true)));
+                addVerse(
+                  VerseModel(
+                    suraNumber: widget.suraNumber,
+                    verse: quran.getVerse(
+                        widget.suraNumber,
+                        int.parse(
+                          numberController.text,
+                        ),
+                        verseEndSymbol: true),
+                  ),
+                );
                 Navigator.pop(context);
-              }, child: Text(AppLocalizations.of(context)!.addbutton),
+              },
+              child: Text(
+                AppLocalizations.of(context)!.addbutton,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             )
           ],
         ),
@@ -78,11 +94,12 @@ class _BookMarkBottomSheetState extends State<BookMarkBottomSheet> {
   }
 
   void addBookMark() {
-    if(formKey.currentState?.validate()==false){
+    if (formKey.currentState?.validate() == false) {
       return;
     }
   }
-  addVerse(VerseModel versemodel)async{
+
+  addVerse(VerseModel versemodel) async {
     var versebox = Hive.box('verseBox');
     await versebox.add(versemodel);
   }
