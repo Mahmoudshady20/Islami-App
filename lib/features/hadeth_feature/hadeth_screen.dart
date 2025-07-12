@@ -6,7 +6,7 @@ import 'package:islamirevision/features/hadeth_feature/data/model/hadith_model.d
 import 'package:islamirevision/features/hadeth_feature/data/state/hadith_state.dart';
 import 'package:islamirevision/features/hadeth_feature/widget/hadeth_content.dart';
 import 'package:islamirevision/shared/widget/custom_divider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:islamirevision/features/hadeth_feature/widget/hadeth_number.dart';
 import 'package:islamirevision/features/hadeth_feature/widget/hadith_loading_state.dart';
 import 'package:islamirevision/features/hadeth_feature/widget/hadith_logo.dart';

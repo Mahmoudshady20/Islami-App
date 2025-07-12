@@ -6,7 +6,7 @@ import 'package:islamirevision/features/azkar_feature/data/state/azkar_state.dar
 import 'package:islamirevision/features/azkar_feature/widget/azkar_content.dart';
 import 'package:islamirevision/features/azkar_feature/widget/azkar_logo.dart';
 import 'package:islamirevision/features/azkar_feature/widget/azkar_name_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:islamirevision/shared/widget/custom_divider.dart';
 
 class AzkarScreen extends StatelessWidget {

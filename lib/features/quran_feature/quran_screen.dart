@@ -4,7 +4,7 @@ import 'package:islamirevision/features/quran_feature/model/verse_model.dart';
 import 'package:islamirevision/features/quran_feature/widget/verse_name_widget.dart';
 import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:islamirevision/core/local_db/shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class QuranScreen extends StatefulWidget {

@@ -4,7 +4,7 @@ import 'package:islamirevision/features/hadeth_feature/hadeth_screen.dart';
 import 'package:islamirevision/features/quran_feature/bookmarks_details.dart';
 import 'package:islamirevision/features/quran_feature/quran_screen.dart';
 import 'package:islamirevision/features/sebha_feature/sebha_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:islamirevision/features/settings_feature/setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {

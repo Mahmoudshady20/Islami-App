@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:islamirevision/features/settings_feature/language_bottom_sheet.dart';
 import 'package:islamirevision/features/settings_feature/theme_bottom_sheet.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

@@ -6,10 +6,10 @@ import 'package:islamirevision/features/quran_feature/widget/sura_details.dart';
 import 'package:islamirevision/features/settings_feature/data/setting_provider.dart';
 import 'package:islamirevision/features/home/home_screen.dart';
 import 'package:islamirevision/features/quran_feature/bookmarks_details.dart';
+import 'package:islamirevision/shared/l10n/app_localizations.dart';
 import 'package:islamirevision/shared/theme_data/my_theme_data.dart';
 import 'package:islamirevision/features/splash_feature/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../shared/l10n/app_localizations.dart';
 import 'package:islamirevision/core/utils/app_styles.dart';
 import 'package:islamirevision/features/sebha_feature/data/sebha_cubit.dart';
 import 'package:islamirevision/features/sebha_feature/data/sebha_state.dart';

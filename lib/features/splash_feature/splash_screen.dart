@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamirevision/features/home/home_screen.dart';
+
+import '../../shared/l10n/app_localizations.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = 'splashscreen';
