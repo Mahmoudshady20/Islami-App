@@ -6,6 +6,7 @@ class HadithLoadingStata extends HadithStata {
   String message;
   HadithLoadingStata({required this.message});
 }
+class HadithPop extends HadithStata {}
 class HadithInitialStata extends HadithStata {
   final List<HadithModel> allHadethList;
   HadithInitialStata({required this.allHadethList});

@@ -7,6 +7,7 @@ import 'package:islamirevision/features/hadeth_feature/data/state/hadith_state.d
 class HadithViewModelCubit extends Cubit<HadithStata> {
   HadithViewModelCubit() : super(HadithLoadingStata(message: 'Please wait...'));
   List<HadithModel> allHadethList = [];
+  bool willPop = false;
   void init(){
     readHadethFile();
   }
@@ -40,4 +41,5 @@ class HadithViewModelCubit extends Cubit<HadithStata> {
   void allHadithBackButton(){
     emit(HadithInitialStata(allHadethList: allHadethList));
   }
+
 }

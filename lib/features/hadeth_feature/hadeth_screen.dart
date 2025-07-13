@@ -22,7 +22,28 @@ class _HadethScreenState extends State<HadethScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HadithViewModelCubit, HadithStata>(
+    return BlocConsumer<HadithViewModelCubit, HadithStata>(
+      listener: (context, state) {
+        if(state is HadithSucceedStata){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BlocProvider.value(
+                value: hadithViewModelCubit, // مرر الـ Cubit الحالي
+                child: HadethContent(
+                  hadithModel: HadithModel(
+                    title: state.allHadethList[state.index].title,
+                    content: state.allHadethList[state.index].content,
+                  ),
+                  onPressed: () {
+                    hadithViewModelCubit.copy(state.index);
+                  },
+                ),
+              ),
+            ),
+          );
+        }
+      },
       bloc: hadithViewModelCubit..init(),
       builder: (context, state) {
         if (state is HadithLoadingStata) {
@@ -66,24 +87,14 @@ class _HadethScreenState extends State<HadethScreen> {
               )
             ],
           );
-        } else if (state is HadithSucceedStata) {
-          return HadethContent(
-            hadithModel: HadithModel(
-              title: state.allHadethList[state.index].title,
-              content: state.allHadethList[state.index].content,
-            ),
-            onPressed: () {
-              hadithViewModelCubit.copy(state.index);
-            },
-            onPressed2: () {
-              hadithViewModelCubit.allHadithBackButton();
-            },
-          );
-        } else {
+        } else if(state is HadithFailureStata){
           return const Center(
             child: Text('Something error'),
           );
         }
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
       },
     );
   }
