@@ -36,21 +36,27 @@ class AzkarScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return AzkarNameWidget(
-                      title: azkarCubit.names[index],
-                      index: index,
-                      onTap: () {
-                        azkarCubit.readFile(index);
-                      },
-                    );
-                  },
-                  itemCount: azkarCubit.names.length,
-                  separatorBuilder: (buildcontext, index) => Container(
-                    width: double.infinity,
-                    color: Theme.of(context).hintColor,
-                    height: 1,
+                child: ListView(
+                  children: List.generate(
+                    azkarCubit.names.length * 2 - 1,
+                        (index) {
+                      if (index.isEven) {
+                        final actualIndex = index ~/ 2;
+                        return AzkarNameWidget(
+                          title: azkarCubit.names[actualIndex],
+                          index: actualIndex,
+                          onTap: () {
+                            azkarCubit.readFile(actualIndex);
+                          },
+                        );
+                      } else {
+                        return Container(
+                          width: double.infinity,
+                          color: Theme.of(context).hintColor,
+                          height: 1,
+                        );
+                      }
+                    },
                   ),
                 ),
               ),
@@ -94,15 +100,24 @@ class AzkarScreen extends StatelessWidget {
                   ],
                 ),
                 Expanded(
-                  child: ListView.separated(
-                    itemBuilder: (buildcontext,index){
-                      return AzkarContent(state.azkarModel.content[index],azkarCubit.counters[index]);
-                    },
-                    itemCount: azkarCubit.content.length,
-                    separatorBuilder: (buildcontext,index)=>Container(
-                      width: double.infinity,
-                      color: Theme.of(context).hintColor,
-                      height: 1,
+                  child: ListView(
+                    children: List.generate(
+                      azkarCubit.content.length * 2 - 1,
+                          (index) {
+                        if (index.isEven) {
+                          final actualIndex = index ~/ 2;
+                          return AzkarContent(
+                            state.azkarModel.content[actualIndex],
+                            azkarCubit.counters[actualIndex],
+                          );
+                        } else {
+                          return Container(
+                            width: double.infinity,
+                            color: Theme.of(context).hintColor,
+                            height: 1,
+                          );
+                        }
+                      },
                     ),
                   ),
                 ),
