@@ -37,7 +37,7 @@ class SebhaContent extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontSize: AppStyles.getResponsiveFontSize(
                           context,
-                          fontSize: 26,
+                          fontSize: 22,
                         ),
                       ),
                 ),
