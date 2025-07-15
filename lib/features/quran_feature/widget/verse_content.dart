@@ -7,17 +7,14 @@ class VerseContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String test = '';
-    for(var s in content) {
-      test+=s+')';
-    }
+    final formattedContent = content.map((s) => s == content.last ? s : '$s)').join(' ');
     return Container(
       padding: const EdgeInsets.only(
         top: 12,
       ),
       alignment: Alignment.center,
       child: Text(
-        test,
+        formattedContent,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.bodyLarge,
       ),

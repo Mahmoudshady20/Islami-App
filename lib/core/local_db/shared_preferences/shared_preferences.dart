@@ -17,8 +17,21 @@ import 'package:shared_preferences/shared_preferences.dart';
   static int getLastNumberOfSurahRead(){
   return prefs.getInt('lastSurah') ?? 1;
   }
+  static Function()? _lastSurahListener;
+
+  static void setLastNumberOfSurahReadListener(Function() listener) {
+    _lastSurahListener = listener;
+  }
+
+  static void clearLastNumberOfSurahReadListener() {
+    _lastSurahListener = null;
+  }
+
   static Future<void> setLastNumberOfSurahRead(int index) async{
    await prefs.setInt('lastSurah', index);
+   if (_lastSurahListener != null) {
+    _lastSurahListener!();
+  }
   }
   static String getlanguage(){
     return prefs.getString('lan') ?? 'ar';
